@@ -10,6 +10,11 @@
         }
     
 </style>
+<head><!-- comment -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
 <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="index.html"><img src="./img/Logo.jpg" alt="logo" /></a>
@@ -29,6 +34,7 @@
                 </div>
             </form>
         </div>
+        
         <ul class="navbar-nav navbar-nav-right">
             
            
@@ -44,7 +50,7 @@
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
                     <a class="dropdown-item" href="#">
                         <div class="nav-language-icon mr-2">
-                            <i class="flag-icon flag-icon-ae" title="ae" id="ae"></i>
+                            <i class="flag-icon flag-icon-vn" title="ae" id="ae"></i>
                         </div>
                         <div class="nav-language-text">
                             <p class="mb-1 text-black">VietNamese</p>

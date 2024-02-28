@@ -10,8 +10,8 @@
         <li class="nav-item nav-category">Main</li>
         <li class="nav-item">
             <a class="nav-link" href="index.html">
-                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
-                <span class="menu-title">Dashboard</span>
+                <span class="icon-bg"><i class="mdi mdi-chart-bar menu-icon"></i></span>
+                <span class="menu-title">Statistical</span>
             </a>
         </li>
         <li class="nav-item">
@@ -28,11 +28,25 @@
                 </ul>
             </div>
         </li>
+        
         <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="pages/charts/chartjs.html">
+                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                <span class="menu-title">Category Management</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
                 <span class="menu-title">Order Management</span>
+                <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">View list order</a></li>
+                    
+                </ul>
+            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="./confirmPayment.jsp">
@@ -40,13 +54,7 @@
                 <span class="menu-title">Confirm Payment</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-                <span class="icon-bg"><i class="mdi mdi-chart-bar menu-icon"></i></span>
-                <span class="menu-title">Statistical</span>
-            </a>
-        </li>
-        
+       
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                 <span class="icon-bg"><i class="mdi mdi-lock menu-icon"></i></span>

@@ -22,10 +22,10 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">Thêm mới ngành nghề</h4>
-                                        <form class="forms-sample" action="/admin/category"  method="post">
+                                        <form class="forms-sample" action="/CWU/admin/category"  method="post">
                                             <div class="form-group">
                                                 <label>Tên ngành nghề</label>
-                                                <input id="category" type="text" class="form-control" placeholder="Tên ngành nghề" name="name">
+                                                <input id="category" type="text" class="form-control" placeholder="Tên danh muc" name="name">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
@@ -35,8 +35,7 @@
                                                     <option value="0">Ẩn</option>
                                                 </select>
                                             </div>
-                                            <button id="add-new" type="submit" class="btn btn-primary mr-2" name="add-new-category">Thêm mới</button>
-                                            <button class="btn btn-light" type="reset">Xóa form</button>
+                                            <button id="add-new" type="submit" class="btn btn-primary mr-2" name="add-new">Thêm mới</button>
                                         </form>
                                     </div>
                                 </div>

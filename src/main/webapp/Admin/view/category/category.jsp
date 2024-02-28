@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="../../components/header.jsp" %>
 <body>
     <div class="container-scroller">
@@ -21,65 +22,27 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Tất cả công ty</h4>
-                                    <a href="" class="btn btn-success">Add new</a>
-                                    <table class="table table-bordered table-hover table-striped table-responsive" id="data-table">
+                                    <h4 class="card-title">All category</h4>
+                                    <a href="/CWU/admin/category/add" class="btn btn-info">Add new</a>
+                                    <table class="table table-bordered table-hover table-striped" id="data-table">
                                         <thead>
                                             <tr>
                                                 <th> # </th>
-                                                <th> Chủ sở hữu </th>
-                                                <th> Công ty </th>
-                                                <th> Email </th>
-                                                <th> Địa chỉ </th>
-                                                <th> SĐT </th>
-                                                <th> Tax </th>
-                                                <th> Ngày tạo </th>
-                                                <th> Cập nhật </th>
-                                                <th>Kiểm duyệt</th>
-                                                <th> Trạng thái </th>
+                                                <th> Danh muc </th>
+                                                <th> Trang thai </th>
                                                 <th> Xử lí </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${companies}" var="company" varStatus="indexScope">
+                                            <c:forEach items="${categories}" var="category" varStatus="indexScope">
                                                 <tr>
                                                     <td> ${indexScope.index + 1} </td>
-                                                    <td> ${company.owner} </td>
-                                                    <td> ${company.name} </td>
-                                                    <td> ${company.email} </td>
-                                                    <td> ${company.address} </td>
-                                                    <td> ${company.phone} </td>
-                                                    <td> ${company.tax} </td>
-                                                    <td>
-                                                        ${getConvertText.getTextDate(company.create_at)}
-                                                    </td>
-                                                    <td> 
-                                                        ${getConvertText.getTextDate(company.modified_at)} 
-                                                    </td>
-                                                    <td>
-                                                        <label class="${convertStatusText.convertStatusTagClass(company.is_approval)}">
-                                                            ${convertStatusText.convertStatusAdminApproval(company.is_approval)}
-                                                        </label>
-                                                    </td>
-                                                    <td>
-                                                        <label class="${convertStatusText.convertStatusTagClass(company.status)}">
-                                                            ${convertStatusText.convertStatusTextUser(company.status)}
-                                                        </label>
-                                                    </td>
-                                                    <td>
-                                                        <a class="btn btn-primary" href="/admin/cong-ty/cap-nhat/${company.id}">
-                                                            Cập nhật
-                                                        </a>
-                                                        <a class="btn btn-warning" href="/admin/cong-ty/chi-tiet/${company.id}">
-                                                            Chi tiết
-                                                        </a>
-                                                        <a class="btn btn-danger" 
-                                                           href="/admin/cong-ty/xoa/${company.id}"
-                                                           onclick="return confirm('Bạn có chắc muốn xóa công ty này?')"
-                                                           >
-                                                            Xóa
-                                                        </a>
-                                                    </td>
+                                                    <td> ${category.name} </td>
+                                                    <td> ${category.status == 1 ? "Hoat dong" : "An"} </td>
+                                                   <td> 
+                                                       <a href="/CWU/admin/category/edit/${category.id}" class="btn btn-success">Chinh sua</a>
+                                                       <a href="/CWU/admin/category/delete/${category.id}" class="btn btn-danger">Xoa</a>
+                                                   </td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

@@ -18,9 +18,8 @@ public class Order_detail {
     private double price;
     private double salePrice;
     private String description;
-    private String image;
 
-    public Order_detail(int id, int orderId, int quantity, int productId, String title, double price, double salePrice, String description, String image) {
+    public Order_detail(int id, int orderId, int quantity, int productId, String title, double price, double salePrice, String description) {
         this.id = id;
         this.orderId = orderId;
         this.quantity = quantity;
@@ -29,7 +28,6 @@ public class Order_detail {
         this.price = price;
         this.salePrice = salePrice;
         this.description = description;
-        this.image = image;
     }
 
     public int getId() {
@@ -95,13 +93,4 @@ public class Order_detail {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
 }

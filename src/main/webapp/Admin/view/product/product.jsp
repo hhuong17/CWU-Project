@@ -22,28 +22,31 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">All category</h4>
-                                    <h6 style="color: red;">${param.status == 0 ? param.message : "Action successfully"}</h6>
-                                    <a href="/CWU/admin/category/add" class="btn btn-info">Add new</a>
+                                    <h4 class="card-title">All products</h4>
+                                    <h6 style="color: red;">${param.status != null  && param.status == 0 ? param.message : "Action successfully"}</h6>
+                                    <a href="/CWU/admin/product/add" class="btn btn-info">Add new</a>
                                     <table class="table table-bordered table-hover table-striped" id="data-table">
                                         <thead>
                                             <tr>
                                                 <th> # </th>
-                                                <th> Danh muc </th>
-                                                <th> Trang thai </th>
+                                                <th> Tiêu de </th>
+                                                <th> Hinh anh </th>
                                                 <th> Xử lí </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${categories}" var="category" varStatus="indexScope">
+                                            <c:forEach items="${products}" var="product" varStatus="indexScope">
                                                 <tr>
                                                     <td> ${indexScope.index + 1} </td>
-                                                    <td> ${category.name} </td>
-                                                    <td> ${category.status == 1 ? "Hoat dong" : "An"} </td>
-                                                   <td> 
-                                                       <a href="/CWU/admin/category/edit/${category.id}" class="btn btn-success">Chinh sua</a>
-                                                       <a href="/CWU/admin/category/delete/${category.id}" class="btn btn-danger" onclick=" return confirm('Are your sure to delete this?')">Xoa</a>
-                                                   </td>
+                                                    <td> ${product.title} </td>
+                                                    <td> 
+                                                        <img src="${product.image}" src="Image product"/>
+                                                    </td>
+
+                                                    <td> 
+                                                        <a href="/CWU/admin/product/edit/${product.id}" class="btn btn-success">Chinh sua</a>
+                                                        <a href="/CWU/admin/product/delete/${product.id}" class="btn btn-danger" onclick=" return confirm('Are your sure to delete this?')">Xoa</a>
+                                                    </td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

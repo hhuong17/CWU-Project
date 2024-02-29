@@ -66,6 +66,25 @@ public class CategoryDao {
         }
         return null;
     }
+    
+    public Category getByName(String name) {
+        String sql = "Select * from category where name=?";
+
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, name);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                int id = rs.getInt("id");
+                int status = rs.getInt("status");
+                Category c = new Category(id, name, status);
+                return c;
+            }
+        } catch (Exception e) {
+            System.err.println("Get all category by name fail: " + e);
+        }
+        return null;
+    }
 
     public int addNew(Category c) {
         String sql = "insert into Category (name, status) values (?, ?)";
@@ -80,9 +99,24 @@ public class CategoryDao {
         }
         return result;
     }
+    
+     public int Update(Category c) {
+        String sql = "update Category set name = ?, status = ? where id=?";
+        int result = 0;
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, c.getName());
+            st.setInt(2, c.getStatus());
+            st.setInt(3, c.getId());
+            result = st.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Update category: " + e);
+        }
+        return result;
+    }
 
-    public int deleteCategory(int categoryId) {
-        String sql = "DELETE FROM Category WHERE id = ?";
+    public int delete(int categoryId) {
+        String sql = "DELETE Category WHERE id = ?";
         int result = 0;
         try {
             PreparedStatement st = conn.prepareStatement(sql);

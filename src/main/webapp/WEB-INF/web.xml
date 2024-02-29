@@ -4,9 +4,41 @@
         <servlet-name>AdminCategoryController</servlet-name>
         <servlet-class>Controllers.Admin.AdminCategoryController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminLoginController</servlet-name>
+        <servlet-class>Controllers.Admin.AdminLoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminHomeController</servlet-name>
+        <servlet-class>Controllers.Admin.AdminHomeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminProductController</servlet-name>
+        <servlet-class>Controllers.Admin.AdminProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminOrderController</servlet-name>
+        <servlet-class>Controllers.Admin.AdminOrderController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminCategoryController</servlet-name>
         <url-pattern>/admin/category/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminLoginController</servlet-name>
+        <url-pattern>/admin/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminHomeController</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminProductController</servlet-name>
+        <url-pattern>/admin/product/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminOrderController</servlet-name>
+        <url-pattern>/admin/order/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -18,4 +18,14 @@ public class NumberCustom {
         }
         return result;
     }
+    
+    public double getDouble(String input) {
+        double result = 0;
+        try {
+            result = Double.parseDouble(input);
+        }catch(NumberFormatException e) {
+            System.out.println("Number format: " + e);
+        }
+        return result;
+    }
 }

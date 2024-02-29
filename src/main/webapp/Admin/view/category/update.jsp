@@ -22,8 +22,8 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">Sửa danh mục</h4>
-                                        <form class="forms-sample" action="/admin/category/" method="post">
-                                            <input type="hidden" name="_method" value="${category.id}"> <!-- Hoặc sử dụng PATCH nếu prefer -->
+                                        <form class="forms-sample" action="/CWU/admin/category/" method="post">
+                                            <input type="hidden" name="id" value="${category.id}"> <!-- Hoặc sử dụng PATCH nếu prefer -->
                                             <div class="form-group">
                                                 <label>Tên danh mục</label>
                                                 <input id="category" type="text" class="form-control" placeholder="Tên danh mục" name="name" value="${category.name}">

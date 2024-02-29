@@ -22,21 +22,26 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Create Products</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Delete Products</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Update Products</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/CWU/admin/product">Products</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/CWU/admin/product/add">Create product</a></li>
                 </ul>
             </div>
         </li>
         
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="/CWU/admin/category">
                 <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                 <span class="menu-title">Category Management</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" href="/CWU/admin/order">
+                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                <span class="menu-title">Order Management</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="/CWU/admin/order" >
                 <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
                 <span class="menu-title">Order Management</span>
                 <i class="menu-arrow"></i>

@@ -13,8 +13,8 @@ import java.sql.SQLException;
  * @author LENOVO
  */
 public class DBConnection {
-    private static final String urlConnect = "jdbc:sqlserver://LAPTOP-5O12M7IG:1433;databaseName=CWUproject;user=sa;password=sa;encrypt=true;trustServerCertificate=true;";
-
+//    private static final String urlConnect = "jdbc:sqlserver://LAPTOP-5O12M7IG:1433;databaseName=CWUproject;user=sa;password=sa;encrypt=true;trustServerCertificate=true;";
+    private static final String urlConnect = "jdbc:sqlserver://DESKTOP-7C4H03U\\SQLEXPRESS:1433;databaseName=CWUproject;user=sa;password=12345678;encrypt=true;trustServerCertificate=true;";
 
 
     public static Connection connect() {
@@ -24,7 +24,7 @@ public class DBConnection {
             System.out.println("Database connection successful!");
             return conn;
         } catch (ClassNotFoundException | SQLException ex) {
-            System.out.println(ex);
+            System.out.println("COnnection fail: " + ex);
         }
         return null;
     }

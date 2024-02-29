@@ -5,21 +5,27 @@
 package Controllers.Admin;
 
 import DAO.CategoryDao;
+import DAO.OrderDao;
+import DAO.OrderDetailDao;
+import DAO.ProductDao;
 import Libs.NumberCustom;
 import Models.Category;
+import Models.Order;
+import Models.Order_detail;
+import Models.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
- * @author LENOVO
+ * @author Admin
  */
-public class AdminCategoryController extends HttpServlet {
+public class AdminOrderController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +44,10 @@ public class AdminCategoryController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AdminCategoryController</title>");
+            out.println("<title>Servlet AdminOrderController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AdminCategoryController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AdminOrderController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,24 +67,23 @@ public class AdminCategoryController extends HttpServlet {
             throws ServletException, IOException {
         String path = request.getRequestURI();
         NumberCustom number = new NumberCustom();
-        CategoryDao cateDao = new CategoryDao();
-        if (path.endsWith("/CWU/admin/category/add")) {
-            request.getRequestDispatcher("/Admin/view/category/add.jsp").forward(request, response);
-        } else if (path.startsWith("/CWU/admin/category/edit")) {
+        OrderDao orderDao = new OrderDao();
+        OrderDetailDao orderDetailDao = new OrderDetailDao();
+        if (path.startsWith("/CWU/admin/order/detail")) {
+             String paths[] = path.split("/");
+            int id = number.getInt(paths[paths.length - 1]);
+            List<Order_detail> orderDetail = orderDetailDao.getAll(id);
+            request.setAttribute("orderDetails", orderDetail);
+            request.getRequestDispatcher("/Admin/view/order/detail.jsp").forward(request, response);
+        } else if (path.startsWith("/CWU/admin/product/delete")) {
             String paths[] = path.split("/");
             int id = number.getInt(paths[paths.length - 1]);
-            Category c = cateDao.getById(id);
-            request.setAttribute("category", c);
-            request.getRequestDispatcher("/Admin/view/category/update.jsp").forward(request, response);
-        } else if(path.startsWith("/CWU/admin/category/delete")) {
-            String paths[] = path.split("/");
-            int id = number.getInt(paths[paths.length - 1]);
-            int result = cateDao.delete(id);
-            response.sendRedirect("/CWU/admin/category?status=" + result);
-        }else {
-            List<Category> categories = cateDao.getAll();
-            request.setAttribute("categories", categories);
-            request.getRequestDispatcher("/Admin/view/category/category.jsp").forward(request, response);
+//            int result = orderDao.delete(id);
+//            response.sendRedirect("/CWU/admin/product?status=" + result);
+        } else {
+            List<Order> orders = orderDao.getAll();
+            request.setAttribute("orders", orders);
+            request.getRequestDispatcher("/Admin/view/order/order.jsp").forward(request, response);
         }
     }
 
@@ -93,41 +98,7 @@ public class AdminCategoryController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        NumberCustom number = new NumberCustom();
-        CategoryDao categoryDao = new CategoryDao();
-        if (request.getParameter("add-new") != null) {
-            String name = request.getParameter("name");
-            Category checkCate = categoryDao.getByName(name);
-            String message = "";
-            int result = 0;
-            if (checkCate != null) {
-                message = "Category name is exist";
-            } else {
-                int status = number.getInt(request.getParameter("status"));
-                Category c = new Category(0, name, status);
-                result = categoryDao.addNew(c);
-            }
-            response.sendRedirect("/CWU/admin/category?status=" + result + "&message=" + message);
-        } else if (request.getParameter("edit-category") != null) {
-            int id = number.getInt(request.getParameter("id"));
-            String name = request.getParameter("name");
-            Category checkCate = categoryDao.getById(id);
-            boolean isEdit = true;
-            String message = "Category name is exist";
-            int result = 0;
-            if(!checkCate.getName().equals(name)) {
-                Category cateExist = categoryDao.getByName(name);
-                if(cateExist != null) {
-                    isEdit = false;
-                }
-            }
-            if(isEdit) {
-                int status = number.getInt(request.getParameter("status"));
-                Category c = new Category(id, name, status);
-                result = categoryDao.Update(c);
-            } 
-            response.sendRedirect("/CWU/admin/category?status=" + result + "&message=" + message);
-        }
+        processRequest(request, response);
     }
 
     /**

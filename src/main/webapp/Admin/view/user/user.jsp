@@ -43,7 +43,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${users}" var="users" varStatus="indexScope">
+                                            <c:forEach items="${users}" var="user" varStatus="indexScope">
                                                 <tr>
                                                     <td> ${indexScope.index + 1} </td>
                                                     <td> ${user.fullName} </td>
@@ -51,7 +51,7 @@
                                                     <td> ${user.phone} </td>
                                                     <td> ${user.address} </td>
                                                     <td> <span class="badge badge-warning">${user.gender == 1 ? "Nu" : "Nam"}</span> </td>
-                                                    <td> ${category.status == 1 ? "Hoat dong" : "Dang khoa"} </td>
+                                                    <td> ${user.status == 1 ? "Hoat dong" : "Dang khoa"} </td>
                                                    <td> 
                                                        <a href="/CWU/admin/user/edit/${user.id}" class="btn btn-success">Chinh sua</a>
                                                        <a href="/CWU/admin/user/delete/${user.id}" class="btn btn-danger" onclick=" return confirm('Are your sure to delete this?')">Xoa</a>
@@ -71,9 +71,9 @@
                     let table = new DataTable('#data-table', {
                         responsive: true,
                         pageLength: 25,
-                        language: {
-                            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json',
-                        },
+//                        language: {
+//                            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json',
+//                        },
                     });
                 </script>
             </div>

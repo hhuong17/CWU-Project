@@ -65,17 +65,17 @@ public class AdminUserController extends HttpServlet {
         if (auth.isLogigAdmin(request) != null) {
             if (path.endsWith("/CWU/admin/category/add")) {
                 request.getRequestDispatcher("/Admin/view/category/add.jsp").forward(request, response);
-            } else if (path.startsWith("/CWU/admin/category/edit")) {
-//                String paths[] = path.split("/");
-//                int id = number.getInt(paths[paths.length - 1]);
-//                User u = userDao.getById(id);
-//                request.setAttribute("user", u);
-//                request.getRequestDispatcher("/Admin/view/category/update.jsp").forward(request, response);
-            } else if (path.startsWith("/CWU/admin/category/delete")) {
-//                String paths[] = path.split("/");
-//                int id = number.getInt(paths[paths.length - 1]);
-//                int result = cateDao.delete(id);
-//                response.sendRedirect("/CWU/admin/category?status=" + result);
+            } else if (path.startsWith("/CWU/admin/user/edit")) {
+                String paths[] = path.split("/");
+                int id = number.getInt(paths[paths.length - 1]);
+                User u = userDao.getById(id);
+                request.setAttribute("user", u);
+                request.getRequestDispatcher("/Admin/view/user/edit.jsp").forward(request, response);
+            } else if (path.startsWith("/CWU/admin/user/delete")) {
+                String paths[] = path.split("/");
+                int id = number.getInt(paths[paths.length - 1]);
+                int result = userDao.delete(id);
+                response.sendRedirect("/CWU/admin/user?status=" + result);
             } else {
                 List<User> users = userDao.getAll();
                 request.setAttribute("users", users);
@@ -96,7 +96,23 @@ public class AdminUserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        Authen auth = new Authen();
+        UserDao userDao = new UserDao();
+        NumberCustom number = new NumberCustom();
+        if(auth.isLogigAdmin(request) != null) {
+            int id = number.getInt(request.getParameter("id"));
+            String email = request.getParameter("email");
+            String fullname = request.getParameter("fullname");
+            String address = request.getParameter("address");
+            String phone = request.getParameter("phone");
+            int gender = number.getInt(request.getParameter("gender"));
+            int status = number.getInt(request.getParameter("status"));
+            User u = new User(id, fullname, email, null, gender, phone, address, status, email);
+            int result = userDao.updateUser(u);
+            response.sendRedirect("/CWU/admin/user?status=" + result);
+        } else {
+            response.sendRedirect("/CWU/admin/login");
+        }
     }
 
     /** 

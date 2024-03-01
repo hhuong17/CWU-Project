@@ -10,6 +10,8 @@
         }
     
 </style>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:useBean id="getAdmin" scope="page" class="Libs.AdminGetLib"/>
 <head><!-- comment -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -36,169 +38,37 @@
         </div>
         
         <ul class="navbar-nav navbar-nav-right">
-            
-           
-            <li class="nav-item nav-language dropdown d-none d-md-block">
-                <a class="nav-link dropdown-toggle" id="languageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                    <div class="nav-language-icon">
-                        <i class="flag-icon flag-icon-us" title="us" id="us"></i>
-                    </div>
-                    <div class="nav-language-text">
-                        <p class="mb-1 text-black">English</p>
-                    </div>
-                </a>
-                <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
-                    <a class="dropdown-item" href="#">
-                        <div class="nav-language-icon mr-2">
-                            <i class="flag-icon flag-icon-vn" title="ae" id="ae"></i>
-                        </div>
-                        <div class="nav-language-text">
-                            <p class="mb-1 text-black">VietNamese</p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div class="nav-language-icon mr-2">
-                            <i class="flag-icon flag-icon-gb" title="GB" id="gb"></i>
-                              </div>
-                        <div class="nav-language-text">
-                            <p class="mb-1 text-black">English</p>
-                        </div>
-                    </a>
-                </div>
-            </li>
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                    <c:set value="${getAdmin.getAdmin(sessionScope.idAdmin)}" var="adminLogin" />
                     <div class="nav-profile-img">
-                        <img src="assets/images/faces/face28.png" alt="image">
+                        <img src="${adminLogin != null && adminLogin.avatar !=  null  ? adminLogin.avatar : "./uploads/avatar/default.jpg"}" alt="image">
                     </div>
                     <div class="nav-profile-text">
-                        <p class="mb-1 text-black">Henry Klein</p>
+                        <p class="mb-1 text-black">${sessionScope.usernameAdmin}</p>
                     </div>
                 </a>
                 <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="profileDropdown" data-x-placement="bottom-end">
                     <div class="p-3 text-center bg-primary">
-                        <img class="img-avatar img-avatar48 img-avatar-thumb" src="assets/images/faces/face28.png" alt="">
+                        <img class="img-avatar img-avatar48 img-avatar-thumb" 
+                             src="${adminLogin != null && adminLogin.avatar !=  null  ? adminLogin.avatar : "./uploads/avatar/default.jpg"}" alt="">
                     </div>
                     <div class="p-2">
                         <h5 class="dropdown-header text-uppercase pl-2 text-dark">User Options</h5>
-                        <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
-                            <span>Inbox</span>
-                            <span class="p-0">
-                                <span class="badge badge-primary">3</span>
-                                <i class="mdi mdi-email-open-outline ml-1"></i>
-                            </span>
-                        </a>
-                        <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
+                        <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="/CWU/admin/profile">
                             <span>Profile</span>
                             <span class="p-0">
                                 <span class="badge badge-success">1</span>
                                 <i class="mdi mdi-account-outline ml-1"></i>
                             </span>
                         </a>
-                        <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                            <span>Settings</span>
-                            <i class="mdi mdi-settings"></i>
-                        </a>
                         <div role="separator" class="dropdown-divider"></div>
                         <h5 class="dropdown-header text-uppercase  pl-2 text-dark mt-2">Actions</h5>
-                        <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
-                            <span>Lock Account</span>
-                            <i class="mdi mdi-lock ml-1"></i>
-                        </a>
-                        <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
+                        <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="/CWU/admin/logout" onclick="return confirm('Are you sure to logout?')">
                             <span>Log Out</span>
                             <i class="mdi mdi-logout ml-1"></i>
                         </a>
                     </div>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                    <i class="mdi mdi-email-outline"></i>
-                    <span class="count-symbol bg-success"></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-                    <h6 class="p-3 mb-0 bg-primary text-white py-4">Messages</h6>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <img src="assets/images/faces/face4.jpg" alt="image" class="profile-pic">
-                        </div>
-                        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
-                            <p class="text-gray mb-0"> 1 Minutes ago </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <img src="assets/images/faces/face2.jpg" alt="image" class="profile-pic">
-                        </div>
-                        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
-                            <p class="text-gray mb-0"> 15 Minutes ago </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <img src="assets/images/faces/face3.jpg" alt="image" class="profile-pic">
-                        </div>
-                        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
-                            <p class="text-gray mb-0"> 18 Minutes ago </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <h6 class="p-3 mb-0 text-center">4 new messages</h6>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                    <i class="mdi mdi-bell-outline"></i>
-                    <span class="count-symbol bg-danger"></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                    <h6 class="p-3 mb-0 bg-primary text-white py-4">Notifications</h6>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-success">
-                                <i class="mdi mdi-calendar"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
-                            <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-warning">
-                                <i class="mdi mdi-settings"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
-                            <p class="text-gray ellipsis mb-0"> Update dashboard </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-info">
-                                <i class="mdi mdi-link-variant"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
-                            <p class="text-gray ellipsis mb-0"> New admin wow! </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <h6 class="p-3 mb-0 text-center">See all notifications</h6>
                 </div>
             </li>
         </ul>

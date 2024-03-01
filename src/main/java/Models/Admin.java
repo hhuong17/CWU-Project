@@ -16,10 +16,11 @@ public class Admin {
     private int gender;
     private String email;
     private String phone;
+    private String avatar;
     private String password;
     private int status;
 
-    public Admin(int id, String fullname, String username, int gender, String email, String phone, String password, int status) {
+    public Admin(int id, String fullname, String username, int gender, String email, String phone, String avatar, String password, int status) {
         this.id = id;
         this.fullname = fullname;
         this.username = username;
@@ -28,7 +29,18 @@ public class Admin {
         this.phone = phone;
         this.password = password;
         this.status = status;
+        this.avatar = avatar;
     }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+    
+    
 
     public int getId() {
         return id;

@@ -29,7 +29,7 @@ public class OrderDetailDao {
     }
     
     public List<Order_detail> getAll(int order_id) {
-    String sql = "SELECT * FROM OrderDetails where order_id = ?";
+    String sql = "SELECT * FROM OrderDetail where order_id = ?";
     List<Order_detail> orderDetails = new ArrayList<>();
     try {
         PreparedStatement st = conn.prepareStatement(sql);

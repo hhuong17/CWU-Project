@@ -6,6 +6,7 @@ package DAO;
 
 import Models.Order;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
@@ -30,10 +31,37 @@ public class OrderDao {
     }
 
     public List<Order> getAll() {
-        String sql = "SELECT * FROM [order]";
+        String sql = "SELECT * FROM [order] order by id desc";
         List<Order> orders = new ArrayList<>();
         try {
             PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String fullname = rs.getString("fullname");
+                String address = rs.getString("address");
+                String phone = rs.getString("phone");
+                Timestamp orderDate = rs.getTimestamp("order_date");
+                double total = rs.getDouble("total");
+                int payment = rs.getInt("payment");
+                int status = rs.getInt("status");
+                String note = rs.getString("note");
+                Order order = new Order(id, fullname, address, phone, orderDate, total, payment, status, note);
+                orders.add(order);
+            }
+        } catch (Exception e) {
+            System.out.println("Get all orders: " + e);
+        }
+        return orders;
+    }
+    
+     public List<Order> getAllByDate(Date from, Date to) {
+        String sql = "SELECT * FROM [order] where order_date >= ? AND order_date <= ? order by id desc";
+        List<Order> orders = new ArrayList<>();
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setDate(1, from);
+            st.setDate(2, to);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");

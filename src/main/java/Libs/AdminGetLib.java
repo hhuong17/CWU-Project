@@ -4,8 +4,10 @@
  */
 package Libs;
 
+import DAO.AdminDao;
 import DAO.OrderDao;
 import DAO.ProductDao;
+import Models.Admin;
 import Models.Order;
 import Models.Product;
 
@@ -22,5 +24,10 @@ public class AdminGetLib {
     public Order getOrder(int id) {
         OrderDao orderDao = new OrderDao();
         return orderDao.getById(id);
+    }
+    
+    public Admin getAdmin(int id) {
+        AdminDao adminDao = new AdminDao();
+        return adminDao.getById(id);
     }
 }

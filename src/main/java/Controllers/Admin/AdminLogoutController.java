@@ -9,6 +9,7 @@ import Libs.Authen;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
-public class AdminHomeController extends HttpServlet {
+public class AdminLogoutController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,10 +35,10 @@ public class AdminHomeController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AdminHomeController</title>");  
+            out.println("<title>Servlet AdminLogoutController</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AdminHomeController at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet AdminLogoutController at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -55,11 +56,13 @@ public class AdminHomeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         Authen auth = new Authen();
-        if(auth.isLogigAdmin(request) != null) {
-            request.getRequestDispatcher("/Admin/view/dashboard/home.jsp").forward(request, response);
-        } else {
-            response.sendRedirect("/CWU/admin/login");
+        if (auth.isLogigAdmin(request) != null) {
+            Cookie cookie = new Cookie("usernameAdmin", null);
+            cookie.setMaxAge(0);
+            cookie.setPath("/");
+            response.addCookie(cookie);
         }
+        response.sendRedirect("/CWU/admin/login");
     } 
 
     /** 

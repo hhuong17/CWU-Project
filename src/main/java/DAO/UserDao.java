@@ -50,8 +50,8 @@ public class UserDao {
     }
 
     // Method to retrieve a user by ID
-    public User getUserById(int id) {
-        String sql = "SELECT * FROM user WHERE id=?";
+    public User getById(int id) {
+        String sql = "SELECT * FROM [user] WHERE id=?";
 
         try ( PreparedStatement st = conn.prepareStatement(sql)) {
             st.setInt(1, id);
@@ -66,7 +66,6 @@ public class UserDao {
                     String address = rs.getString("address");
                     int status = rs.getInt("status");
                     String avatar = rs.getString("avatar");
-
                     return new User(id, fullName, email, password, gender, phone, address, status, avatar);
                 }
             }
@@ -98,36 +97,36 @@ public class UserDao {
     }
 
     // Method to update a user
-    public void updateUser(User user) {
-        String sql = "UPDATE user SET fullName=?, email=?, password=?, gender=?, phone=?, address=?, status=?, avatar=? WHERE id=?";
-
+    public int updateUser(User user) {
+        String sql = "UPDATE [user] SET fullName=?, email=?, gender=?, phone=?, address=?, status=?, avatar=? WHERE id=?";
+        int result = 0;
         try ( PreparedStatement st = conn.prepareStatement(sql)) {
-            st.setString(1, user.getFullName());
-            st.setString(2, user.getEmail());
-            st.setString(3, user.getPassword());
-            st.setInt(4, user.getGender());
-            st.setString(5, user.getPhone());
-            st.setString(6, user.getAddress());
-            st.setInt(7, user.getStatus());
-            st.setString(8, user.getAvatar());
-            st.setInt(9, user.getId());
-
-            st.executeUpdate();
+            int i = 1;
+            st.setString(i++, user.getFullName());
+            st.setString(i++, user.getEmail());
+            st.setInt(i++, user.getGender());
+            st.setString(i++, user.getPhone());
+            st.setString(i++, user.getAddress());
+            st.setInt(i++, user.getStatus());
+            st.setString(i++, user.getAvatar());
+            st.setInt(i++, user.getId());
+            result = st.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Update user failed: " + e.getMessage());
         }
+        return result;
     }
 
     // Method to delete a user
-    public void deleteUser(int id) {
-        String sql = "DELETE FROM user WHERE id=?";
-
+    public int delete(int id) {
+        String sql = "DELETE FROM [user] WHERE id=?";
+        int result = 0;
         try ( PreparedStatement st = conn.prepareStatement(sql)) {
             st.setInt(1, id);
-
-            st.executeUpdate();
+            result = st.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Delete user failed: " + e.getMessage());
         }
+        return result;
     }
 }

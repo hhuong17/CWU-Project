@@ -5,19 +5,24 @@
 
 package Controllers.Admin;
 
-import Libs.Authen;
+import DAO.OrderDao;
+import Models.Order;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+import java.util.List;
+import java.sql.Date;
+import java.util.List;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 /**
  *
  * @author Admin
  */
-public class AdminHomeController extends HttpServlet {
+public class AdminDashBoardController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,10 +39,10 @@ public class AdminHomeController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AdminHomeController</title>");  
+            out.println("<title>Servlet AdminDashBoardController</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AdminHomeController at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet AdminDashBoardController at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -54,12 +59,7 @@ public class AdminHomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        Authen auth = new Authen();
-        if(auth.isLogigAdmin(request) != null) {
-            request.getRequestDispatcher("/Admin/view/dashboard/home.jsp").forward(request, response);
-        } else {
-            response.sendRedirect("/CWU/admin/login");
-        }
+        processRequest(request, response);
     } 
 
     /** 
@@ -71,8 +71,45 @@ public class AdminHomeController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException, IOException {
+        String from = request.getParameter("from");
+        String to = request.getParameter("to");
+        JSONArray arr = this.statistic();
+        if (!from.equals("") && !to.equals("")) {
+            arr = this.statistic(Date.valueOf(from), Date.valueOf(to));
+        }
+        try ( PrintWriter out = response.getWriter()) {
+            response.setContentType("application/json");
+            out.print(arr);
+        }
+    }
+
+    private JSONArray statistic() {
+        OrderDao billDao = new OrderDao();
+        List<Order> orders = billDao.getAll();
+        JSONArray arr = new JSONArray();
+        for (Order b : orders) {
+            JSONObject bill = new JSONObject();
+            bill.put("date", b.getOrderDate().toString().split(" ")[0]);
+            bill.put("total", b.getTotal());
+            bill.put("status", b.getStatus());
+            arr.add(bill);
+        }
+        return arr;
+    }
+
+    private JSONArray statistic(Date from, Date to) {
+        OrderDao billDao = new OrderDao();
+        List<Order> orders = billDao.getAllByDate(from, to);
+        JSONArray arr = new JSONArray();
+        for (Order b : orders) {
+            JSONObject bill = new JSONObject();
+            bill.put("date", b.getOrderDate().toString().split(" ")[0]);
+            bill.put("total", b.getTotal());
+            bill.put("status", b.getStatus());
+            arr.add(bill);
+        }
+        return arr;
     }
 
     /** 

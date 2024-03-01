@@ -20,6 +20,10 @@
         <servlet-name>AdminOrderController</servlet-name>
         <servlet-class>Controllers.Admin.AdminOrderController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminUserController</servlet-name>
+        <servlet-class>Controllers.Admin.AdminUserController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminCategoryController</servlet-name>
         <url-pattern>/admin/category/*</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>AdminOrderController</servlet-name>
         <url-pattern>/admin/order/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUserController</servlet-name>
+        <url-pattern>/admin/user/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

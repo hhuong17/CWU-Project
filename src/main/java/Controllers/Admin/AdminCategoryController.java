@@ -5,6 +5,7 @@
 package Controllers.Admin;
 
 import DAO.CategoryDao;
+import Libs.Authen;
 import Libs.NumberCustom;
 import Models.Category;
 import java.io.IOException;
@@ -62,23 +63,28 @@ public class AdminCategoryController extends HttpServlet {
         String path = request.getRequestURI();
         NumberCustom number = new NumberCustom();
         CategoryDao cateDao = new CategoryDao();
-        if (path.endsWith("/CWU/admin/category/add")) {
-            request.getRequestDispatcher("/Admin/view/category/add.jsp").forward(request, response);
-        } else if (path.startsWith("/CWU/admin/category/edit")) {
-            String paths[] = path.split("/");
-            int id = number.getInt(paths[paths.length - 1]);
-            Category c = cateDao.getById(id);
-            request.setAttribute("category", c);
-            request.getRequestDispatcher("/Admin/view/category/update.jsp").forward(request, response);
-        } else if(path.startsWith("/CWU/admin/category/delete")) {
-            String paths[] = path.split("/");
-            int id = number.getInt(paths[paths.length - 1]);
-            int result = cateDao.delete(id);
-            response.sendRedirect("/CWU/admin/category?status=" + result);
-        }else {
-            List<Category> categories = cateDao.getAll();
-            request.setAttribute("categories", categories);
-            request.getRequestDispatcher("/Admin/view/category/category.jsp").forward(request, response);
+        Authen auth = new Authen();
+        if (auth.isLogigAdmin(request) != null) {
+            if (path.endsWith("/CWU/admin/category/add")) {
+                request.getRequestDispatcher("/Admin/view/category/add.jsp").forward(request, response);
+            } else if (path.startsWith("/CWU/admin/category/edit")) {
+                String paths[] = path.split("/");
+                int id = number.getInt(paths[paths.length - 1]);
+                Category c = cateDao.getById(id);
+                request.setAttribute("category", c);
+                request.getRequestDispatcher("/Admin/view/category/update.jsp").forward(request, response);
+            } else if (path.startsWith("/CWU/admin/category/delete")) {
+                String paths[] = path.split("/");
+                int id = number.getInt(paths[paths.length - 1]);
+                int result = cateDao.delete(id);
+                response.sendRedirect("/CWU/admin/category?status=" + result);
+            } else {
+                List<Category> categories = cateDao.getAll();
+                request.setAttribute("categories", categories);
+                request.getRequestDispatcher("/Admin/view/category/category.jsp").forward(request, response);
+            }
+        } else {
+            response.sendRedirect("/CWU/admin/login");
         }
     }
 
@@ -115,17 +121,17 @@ public class AdminCategoryController extends HttpServlet {
             boolean isEdit = true;
             String message = "Category name is exist";
             int result = 0;
-            if(!checkCate.getName().equals(name)) {
+            if (!checkCate.getName().equals(name)) {
                 Category cateExist = categoryDao.getByName(name);
-                if(cateExist != null) {
+                if (cateExist != null) {
                     isEdit = false;
                 }
             }
-            if(isEdit) {
+            if (isEdit) {
                 int status = number.getInt(request.getParameter("status"));
                 Category c = new Category(id, name, status);
                 result = categoryDao.Update(c);
-            } 
+            }            
             response.sendRedirect("/CWU/admin/category?status=" + result + "&message=" + message);
         }
     }

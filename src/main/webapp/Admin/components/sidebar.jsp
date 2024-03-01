@@ -54,14 +54,14 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./confirmPayment.jsp">
+            <a class="nav-link" href="/CWU/admin/order/confirm">
                 <span class="icon-bg"><i class="mdi mdi-format-list-bulleted menu-icon"></i></span>
                 <span class="menu-title">Confirm Payment</span>
             </a>
         </li>
        
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+            <a class="nav-link"  href="/CWU/admin/user" >
                 <span class="icon-bg"><i class="mdi mdi-lock menu-icon"></i></span>
                 <span class="menu-title">User Account Management</span>
                 <i class="menu-arrow"></i>

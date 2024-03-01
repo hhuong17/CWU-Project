@@ -9,7 +9,8 @@ package Models;
  * @author LENOVO
  */
 public class User {
-       private int id;
+
+    private int id;
     private String fullName;
     private String email;
     private String password;
@@ -102,6 +103,5 @@ public class User {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
-    
-    
+
 }

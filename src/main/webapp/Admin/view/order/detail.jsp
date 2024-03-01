@@ -6,7 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:useBean id="getAdmin" scope="page" class="Libs.AdminGetLib"/>
 <%@include file="../../components/header.jsp" %>
 <body>
     <div class="container-scroller">
@@ -24,6 +23,36 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Chi tiet don hang</h4>
+                                    <div>
+                                        <form class="forms-sample" action="/CWU/admin/product"  method="post" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <label>Fullname</label>                                             
+                                                <input id="category" type="text" class="form-control" placeholder="Tieu de" name="title" value="${order.fullname}" readonly>
+                                                <span class = 'message_error'></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <input id="category" type="text" class="form-control" placeholder=Gia" name="price" value="${order.address}" readonly>
+                                                <span class = 'message_error'></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Phone</label>
+                                                <input id="category" type="text" class="form-control" placeholder="Gia sale" name="priceSale" value="${order.phone}" readonly>
+                                                <span class = 'message_error'></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Order date</label>
+                                                <input id="category" type="text" class="form-control" placeholder="Stock" name="stock" value="${order.orderDate}" readonly>
+                                                <span class = 'message_error'></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Payment</label>
+                                                <input id="category" type="text" class="form-control" placeholder="Mo ta" 
+                                                       name="desc" value="${order.payment == 1 ? "Thanh toan khi nhan hang" : "Thanh toan qua VNPAY"}" readonly>
+                                                <span class = 'message_error'></span>
+                                            </div>
+                                        </form>
+                                    </div>
                                     <table class="table table-bordered table-hover table-striped" id="data-table">
                                         <thead>
                                             <tr>

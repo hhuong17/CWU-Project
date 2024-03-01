@@ -6,6 +6,7 @@ package Controllers.Admin;
 
 import DAO.CategoryDao;
 import DAO.ProductDao;
+import Libs.Authen;
 import Libs.DateCustom;
 import Libs.NumberCustom;
 import Libs.Upload;
@@ -73,27 +74,32 @@ public class AdminProductController extends HttpServlet {
         NumberCustom number = new NumberCustom();
         ProductDao productDao = new ProductDao();
         CategoryDao cateDao = new CategoryDao();
-        if (path.endsWith("/CWU/admin/product/add")) {
-            List<Category> categories = cateDao.getAll();
-            request.setAttribute("categories", categories);
-            request.getRequestDispatcher("/Admin/view/product/add.jsp").forward(request, response);
-        } else if (path.startsWith("/CWU/admin/product/edit")) {
-            List<Category> categories = cateDao.getAll();
-            request.setAttribute("categories", categories);
-            String paths[] = path.split("/");
-            int id = number.getInt(paths[paths.length - 1]);
-            Product p = productDao.getById(id);
-            request.setAttribute("product", p);
-            request.getRequestDispatcher("/Admin/view/product/update.jsp").forward(request, response);
-        } else if (path.startsWith("/CWU/admin/product/delete")) {
-            String paths[] = path.split("/");
-            int id = number.getInt(paths[paths.length - 1]);
-            int result = productDao.delete(id);
-            response.sendRedirect("/CWU/admin/product?status=" + result);
+        Authen auth = new Authen();
+        if (auth.isLogigAdmin(request) != null) {
+            if (path.endsWith("/CWU/admin/product/add")) {
+                List<Category> categories = cateDao.getAll();
+                request.setAttribute("categories", categories);
+                request.getRequestDispatcher("/Admin/view/product/add.jsp").forward(request, response);
+            } else if (path.startsWith("/CWU/admin/product/edit")) {
+                List<Category> categories = cateDao.getAll();
+                request.setAttribute("categories", categories);
+                String paths[] = path.split("/");
+                int id = number.getInt(paths[paths.length - 1]);
+                Product p = productDao.getById(id);
+                request.setAttribute("product", p);
+                request.getRequestDispatcher("/Admin/view/product/update.jsp").forward(request, response);
+            } else if (path.startsWith("/CWU/admin/product/delete")) {
+                String paths[] = path.split("/");
+                int id = number.getInt(paths[paths.length - 1]);
+                int result = productDao.delete(id);
+                response.sendRedirect("/CWU/admin/product?status=" + result);
+            } else {
+                List<Product> product = productDao.getAll();
+                request.setAttribute("products", product);
+                request.getRequestDispatcher("/Admin/view/product/product.jsp").forward(request, response);
+            }
         } else {
-            List<Product> product = productDao.getAll();
-            request.setAttribute("products", product);
-            request.getRequestDispatcher("/Admin/view/product/product.jsp").forward(request, response);
+            response.sendRedirect("/CWU/admin/login");
         }
     }
 
@@ -128,7 +134,7 @@ public class AdminProductController extends HttpServlet {
             Product p = new Product(1, title, price, priceSale, stock, desc, pathAvatar + nameImgProduct, categoryId, create_date);
             int result = productDao.addNew(p);
             response.sendRedirect("/CWU/admin/product?status=" + result);
-        } else if(request.getParameter("update-product") != null) {
+        } else if (request.getParameter("update-product") != null) {
             int id = number.getInt(request.getParameter("id"));
             int categoryId = number.getInt(request.getParameter("category"));
             String title = request.getParameter("title");
@@ -141,7 +147,7 @@ public class AdminProductController extends HttpServlet {
             String pathAvatar = "./uploads/image/";
             String uploadPath = getServletContext().getRealPath(pathAvatar);
             String nameImgProduct = upload.uploadImg(mainImgParth, uploadPath);
-            if(nameImgProduct == null) {
+            if (nameImgProduct == null) {
                 nameImgProduct = oldImage;
             } else {
                 nameImgProduct = pathAvatar + nameImgProduct;

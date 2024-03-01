@@ -22,31 +22,39 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">All category</h4>
+                                    <h4 class="card-title">All users</h4>
                                     <h6 style="color: red;">
                                         <c:if test="${param.status != null}">
                                             ${param.status != null  && param.status == 0 ? param.message : "Action successfully"}
                                         </c:if> 
                                     </h6>
-                                    <a href="/CWU/admin/category/add" class="btn btn-info">Add new</a>
+                                    <!--<a href="/CWU/admin/category/add" class="btn btn-info">Add new</a>-->
                                     <table class="table table-bordered table-hover table-striped" id="data-table">
                                         <thead>
                                             <tr>
                                                 <th> # </th>
-                                                <th> Danh muc </th>
-                                                <th> Trang thai </th>
-                                                <th> Xử lí </th>
+                                                <th> Fullname </th>
+                                                <th> Email </th>
+                                                <th> Phone </th>
+                                                <th> Address </th>
+                                                <th> Gender </th>
+                                                <th> Status </th>
+                                                <th> Xu li </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${categories}" var="category" varStatus="indexScope">
+                                            <c:forEach items="${users}" var="users" varStatus="indexScope">
                                                 <tr>
                                                     <td> ${indexScope.index + 1} </td>
-                                                    <td> ${category.name} </td>
-                                                    <td> ${category.status == 1 ? "Hoat dong" : "An"} </td>
+                                                    <td> ${user.fullName} </td>
+                                                    <td> ${user.email} </td>
+                                                    <td> ${user.phone} </td>
+                                                    <td> ${user.address} </td>
+                                                    <td> <span class="badge badge-warning">${user.gender == 1 ? "Nu" : "Nam"}</span> </td>
+                                                    <td> ${category.status == 1 ? "Hoat dong" : "Dang khoa"} </td>
                                                    <td> 
-                                                       <a href="/CWU/admin/category/edit/${category.id}" class="btn btn-success">Chinh sua</a>
-                                                       <a href="/CWU/admin/category/delete/${category.id}" class="btn btn-danger" onclick=" return confirm('Are your sure to delete this?')">Xoa</a>
+                                                       <a href="/CWU/admin/user/edit/${user.id}" class="btn btn-success">Chinh sua</a>
+                                                       <a href="/CWU/admin/user/delete/${user.id}" class="btn btn-danger" onclick=" return confirm('Are your sure to delete this?')">Xoa</a>
                                                    </td>
                                                 </tr>
                                             </c:forEach>

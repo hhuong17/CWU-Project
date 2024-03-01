@@ -53,9 +53,34 @@ public class OrderDao {
         }
         return orders;
     }
+    
+    public List<Order> getAllByPayment(int status) {
+        String sql = "SELECT * FROM [order] where status = ?";
+        List<Order> orders = new ArrayList<>();
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, status);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String fullname = rs.getString("fullname");
+                String address = rs.getString("address");
+                String phone = rs.getString("phone");
+                Timestamp orderDate = rs.getTimestamp("order_date");
+                double total = rs.getDouble("total");
+                int payment = rs.getInt("payment");
+                String note = rs.getString("note");
+                Order order = new Order(id, fullname, address, phone, orderDate, total, payment, status, note);
+                orders.add(order);
+            }
+        } catch (Exception e) {
+            System.out.println("Get all orders: " + e);
+        }
+        return orders;
+    }
 
     public Order getById(int id) {
-        String sql = "SELECT * FROM Order WHERE id=?";
+        String sql = "SELECT * FROM [Order] WHERE id=?";
         try {
             PreparedStatement st = conn.prepareStatement(sql);
             st.setInt(1, id);
@@ -76,6 +101,34 @@ public class OrderDao {
             System.out.println("Get order by id: " + e);
         }
         return null;
+    }
+    
+    public int updateStatus(int id, int status) {
+        String sql = "Update [Order] set status = ? where id=?";
+        int result = 0;
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, status);
+            st.setInt(2, id);
+            result = st.executeUpdate();
+        }catch(Exception e) {
+            System.out.println("Update staus order:" + e);
+        }
+        return result;
+    }
+    
+    public int updateConfirm(int id, int payment) {
+        String sql = "Update [Order] set payment = ? where id=?";
+        int result = 0;
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, payment);
+            st.setInt(2, id);
+            result = st.executeUpdate();
+        }catch(Exception e) {
+            System.out.println("Update payment order:" + e);
+        }
+        return result;
     }
 
 }

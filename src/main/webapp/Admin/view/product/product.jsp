@@ -23,7 +23,11 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">All products</h4>
-                                    <h6 style="color: red;">${param.status != null  && param.status == 0 ? param.message : "Action successfully"}</h6>
+                                    <h6 style="color: red;">
+                                        <c:if test="${param.status != null}">
+                                            ${param.status != null  && param.status == 0 ? param.message : "Action successfully"}
+                                        </c:if> 
+                                    </h6>
                                     <a href="/CWU/admin/product/add" class="btn btn-info">Add new</a>
                                     <table class="table table-bordered table-hover table-striped" id="data-table">
                                         <thead>

@@ -80,20 +80,18 @@
                                             </c:forEach>
                                         </tbody>
                                     </table>
-                                    <h3>Change status order</h3>
+                                    <h3>Change status payment</h3>
                                     <form class="forms-sample" action="/CWU/admin/order"  method="post">
                                         <div class="form-group">
                                             <input id="category" type="hidden" class="form-control" name="id" value="${order.id}">
                                             <label for="exampleSelectGender">Trạng thái</label>
-                                            <select class="form-control" id="exampleSelectGender" name="status">
-                                                <option value="1" ${order.status == 1 ? "selected" : ""}>Xác nhan</option>
-                                                <option value="2" ${order.status == 2 ? "selected" : ""}>Huy don</option>
-                                                <option value="3" ${order.status == 3 ? "selected" : ""}>Da giao cho van chuyen</option>
-                                                <option value="4" ${order.status == 4 ? "selected" : ""}>Dang van chuyen</option>
-                                                <option value="5" ${order.status == 5 ? "selected" : ""}>Ðã nhan va thanh toan</option>
+                                            <select class="form-control" id="exampleSelectGender" name="payment">
+                                                <option value="1" ${order.payment == 0 ? "selected" : ""}>Thanh toan voi VNPAY</option>
+                                                <option value="2" ${order.payment == 1 ? "selected" : ""}>Thanh toan khi nhan hang</option>
+                                                <option value="3" ${order.payment == 2 ? "selected" : ""}>Xac nhan da nhan thanh toan</option>
                                             </select>
                                         </div>
-                                        <button id="add-new" type="submit" class="btn btn-primary mr-2" name="update-order">Cap nhat</button>
+                                        <button id="add-new" type="submit" class="btn btn-primary mr-2" name="update-order-payment">Cap nhat</button>
                                     </form>
                                 </div>
                             </div>

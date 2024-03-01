@@ -1,11 +1,12 @@
 <%-- 
-    Document   : category
-    Created on : Feb 27, 2024, 11:07:52 PM
-    Author     : LENOVO
+    Document   : confirm
+    Created on : Feb 29, 2024, 10:14:54 AM
+    Author     : Admin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:useBean id="convertStatus" scope="page" class="Libs.ConvertOrderStatus"/>
 <%@include file="../../components/header.jsp" %>
 <body>
     <div class="container-scroller">
@@ -22,32 +23,40 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">All category</h4>
+                                    <h4 class="card-title">All products</h4>
                                     <h6 style="color: red;">
                                         <c:if test="${param.status != null}">
                                             ${param.status != null  && param.status == 0 ? param.message : "Action successfully"}
                                         </c:if> 
                                     </h6>
-                                    <a href="/CWU/admin/category/add" class="btn btn-info">Add new</a>
-                                    <table class="table table-bordered table-hover table-striped" id="data-table">
+                                    <table class="table table-bordered table-hover table-striped table-responsive" id="data-table">
                                         <thead>
                                             <tr>
                                                 <th> # </th>
-                                                <th> Danh muc </th>
-                                                <th> Trang thai </th>
-                                                <th> Xử lí </th>
+                                                <th> FullName </th>
+                                                <th> Address </th>
+                                                <th> Phone </th>
+                                                <th> Order date </th>
+                                                <th> Payment </th>
+                                                <th> Status </th>
+                                                <th> X? lí </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${categories}" var="category" varStatus="indexScope">
+                                            <c:forEach items="${orders}" var="order" varStatus="indexScope">
                                                 <tr>
                                                     <td> ${indexScope.index + 1} </td>
-                                                    <td> ${category.name} </td>
-                                                    <td> ${category.status == 1 ? "Hoat dong" : "An"} </td>
-                                                   <td> 
-                                                       <a href="/CWU/admin/category/edit/${category.id}" class="btn btn-success">Chinh sua</a>
-                                                       <a href="/CWU/admin/category/delete/${category.id}" class="btn btn-danger" onclick=" return confirm('Are your sure to delete this?')">Xoa</a>
-                                                   </td>
+                                                    <td> ${order.fullname} </td>
+                                                    <td> ${order.address} </td>
+                                                    <td> ${order.phone} </td>
+                                                    <td> ${order.orderDate} </td>
+                                                    <td> <span class="badge badge-danger">${convertStatus.convertStatusPayment(order.payment)}</span> </td>
+                                                    <td> 
+                                                        <span class="${convertStatus.convertStatusTag(order.status)}">${convertStatus.convertStatus(order.status)}</span>
+                                                    </td>
+                                                    <td> 
+                                                        <a href="/CWU/admin/order/confim/${order.id}" class="btn btn-success">Confirm payment</a>
+                                                    </td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

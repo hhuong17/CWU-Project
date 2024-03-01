@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:useBean id="convertStatus" scope="page" class="Libs.ConvertOrderStatus"/>
 <%@include file="../../components/header.jsp" %>
 <body>
     <div class="container-scroller">
@@ -22,9 +23,13 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">All products</h4>
-                                    <h6 style="color: red;">${param.status != null  && param.status == 0 ? param.message : "Action successfully"}</h6>
-                                    <table class="table table-bordered table-hover table-striped" id="data-table">
+                                    <h4 class="card-title">All orders</h4>
+                                    <h6 style="color: red;">
+                                        <c:if test="${param.status != null}">
+                                            ${param.status != null  && param.status == 0 ? param.message : "Action successfully"}
+                                        </c:if> 
+                                    </h6>
+                                    <table class="table table-bordered table-hover table-striped table-responsive" id="data-table">
                                         <thead>
                                             <tr>
                                                 <th> # </th>
@@ -45,11 +50,13 @@
                                                     <td> ${order.address} </td>
                                                     <td> ${order.phone} </td>
                                                     <td> ${order.orderDate} </td>
-                                                    <td> ${order.payment == 1 ? "Thanh toan khi nhan hang" : "Thanh toan qua VNPAY"} </td>
-                                                    <td> ${order.status} </td>
+                                                    <td> <span class="badge badge-danger">${convertStatus.convertStatusPayment(order.payment)}</span> </td>
+                                                    <td> 
+                                                        <span class="${convertStatus.convertStatusTag(order.status)}">${convertStatus.convertStatus(order.status)}</span>
+                                                    </td>
                                                     <td> 
                                                         <a href="/CWU/admin/order/edit/${order.id}" class="btn btn-success">Thay doi trang thai</a>
-                                                        <a href="/CWU/admin/order/detail/${order.id}" class="btn btn-success">Chi tiet</a>
+                                                        <a href="/CWU/admin/order/detail/${order.id}" class="btn btn-info">Chi tiet</a>
                                                     </td>
                                                 </tr>
                                             </c:forEach>

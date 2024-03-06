@@ -19,8 +19,9 @@ public class Feedback {
     private String feedbackContent;
     private String image;
     private Timestamp feedbackDate;
+    private int order_id;
 
-    public Feedback(int id, int productId, int userId, int rate, String feedbackContent, String image, Timestamp feedbackDate) {
+    public Feedback(int id, int productId, int userId, int rate, String feedbackContent, String image, Timestamp feedbackDate, int order_id) {
         this.id = id;
         this.productId = productId;
         this.userId = userId;
@@ -28,8 +29,17 @@ public class Feedback {
         this.feedbackContent = feedbackContent;
         this.image = image;
         this.feedbackDate = feedbackDate;
+        this.order_id = order_id;
     }
 
+    public int getOrder_id() {
+        return order_id;
+    }
+
+    public void setOrder_id(int order_id) {
+        this.order_id = order_id;
+    }
+    
     public int getId() {
         return id;
     }

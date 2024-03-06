@@ -21,8 +21,9 @@ public class Order {
     private int payment;
     private int status;
     private String note;
+    private int user_id;
 
-    public Order(int id, String fullname, String address, String phone, Timestamp orderDate, double total, int payment, int status, String note) {
+    public Order(int id, String fullname, String address, String phone, Timestamp orderDate, double total, int payment, int status, String note, int user_id) {
         this.id = id;
         this.fullname = fullname;
         this.address = address;
@@ -32,7 +33,18 @@ public class Order {
         this.payment = payment;
         this.status = status;
         this.note = note;
+        this.user_id = user_id;
     }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+    
+    
 
     public int getId() {
         return id;

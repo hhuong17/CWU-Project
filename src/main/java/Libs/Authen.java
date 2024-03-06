@@ -38,4 +38,30 @@ public class Authen {
         }
         return null;
     }
+    
+    public String isLogigCandidate(HttpServletRequest request) {
+        try {
+            String usernameCookie = "";
+            Cookie cookies[] = request.getCookies();
+            HttpSession session = request.getSession();
+            if (cookies != null) {
+                for (Cookie c : cookies) {
+                    if (c != null && c.getName().equals("usernameUser")) {
+                        usernameCookie = c.getValue();
+                        session.setAttribute("usernameUser", usernameCookie);
+                    }
+                    if(c != null && c.getName().equals("idUser")) {
+                        String id = c.getValue();
+                        session.setAttribute("idUser", id);
+                    }
+                }
+            }
+            if (!usernameCookie.equals("")) {
+                return usernameCookie;
+            }
+        } catch (Exception e) {
+            System.out.println("Error login user: " + e);
+        }
+        return null;
+    }
 }

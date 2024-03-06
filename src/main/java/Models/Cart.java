@@ -6,19 +6,21 @@ package Models;
 
 /**
  *
- * @author LENOVO
+ * @author Tran Tri Tin
  */
 public class Cart {
     private int id;
     private int user_id;
     private double total_price;
     private int product_id;
+    private int quantity;
 
-    public Cart(int id, int user_id, double total_price, int product_id) {
+    public Cart(int id, int user_id, double total_price, int product_id, int quantity) {
         this.id = id;
         this.user_id = user_id;
         this.total_price = total_price;
         this.product_id = product_id;
+        this.quantity = quantity;
     }
 
     public int getId() {
@@ -51,6 +53,14 @@ public class Cart {
 
     public void setProduct_id(int product_id) {
         this.product_id = product_id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
     
 }

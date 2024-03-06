@@ -76,24 +76,49 @@ public class UserDao {
         return null;
     }
 
-    // Method to add a new user
-    public void addUser(User user) {
-        String sql = "INSERT INTO user (fullName, email, password, gender, phone, address, status, avatar) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public User getByEmail(String email) {
+        String sql = "SELECT * FROM [user] WHERE email=?";
 
         try ( PreparedStatement st = conn.prepareStatement(sql)) {
-            st.setString(1, user.getFullName());
-            st.setString(2, user.getEmail());
-            st.setString(3, user.getPassword());
-            st.setInt(4, user.getGender());
-            st.setString(5, user.getPhone());
-            st.setString(6, user.getAddress());
-            st.setInt(7, user.getStatus());
-            st.setString(8, user.getAvatar());
+            st.setString(1, email);
 
-            st.executeUpdate();
+            try ( ResultSet rs = st.executeQuery()) {
+                if (rs.next()) {
+                    int id = rs.getInt("id");
+                    String fullName = rs.getString("fullName");
+                    String password = rs.getString("password");
+                    int gender = rs.getInt("gender");
+                    String phone = rs.getString("phone");
+                    String address = rs.getString("address");
+                    int status = rs.getInt("status");
+                    String avatar = rs.getString("avatar");
+                    return new User(id, fullName, email, password, gender, phone, address, status, avatar);
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Get user by ID failed: " + e.getMessage());
+        }
+
+        return null;
+    }
+
+    // Method to add a new user
+    public int  addUser(User user) {
+        String sql = "INSERT INTO [user] (fullname, email, password, phone, address, status) VALUES (?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            int i = 1;
+            st.setString(i++, user.getFullName());
+            st.setString(i++, user.getEmail());
+            st.setString(i++, user.getPassword());
+            st.setString(i++, user.getPhone());
+            st.setString(i++, user.getAddress());
+            st.setInt(i++, user.getStatus());
+            return st.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Add user failed: " + e.getMessage());
         }
+        return 0;
     }
 
     // Method to update a user
@@ -113,6 +138,39 @@ public class UserDao {
             result = st.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Update user failed: " + e.getMessage());
+        }
+        return result;
+    }
+
+    public int updateUserPassword(int id, String password) {
+        String sql = "UPDATE [user] SET password=? WHERE id=?";
+        int result = 0;
+        try ( PreparedStatement st = conn.prepareStatement(sql)) {
+            int i = 1;
+            st.setString(i++, password);
+            st.setInt(i++, id);
+            result = st.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Update user password failed: " + e.getMessage());
+        }
+        return result;
+    }
+
+    public int updateUserProfile(User user) {
+        String sql = "UPDATE [user] SET fullName=?, email=?, gender=?, phone=?, address=?, avatar=? WHERE id=?";
+        int result = 0;
+        try ( PreparedStatement st = conn.prepareStatement(sql)) {
+            int i = 1;
+            st.setString(i++, user.getFullName());
+            st.setString(i++, user.getEmail());
+            st.setInt(i++, user.getGender());
+            st.setString(i++, user.getPhone());
+            st.setString(i++, user.getAddress());
+            st.setString(i++, user.getAvatar());
+            st.setInt(i++, user.getId());
+            result = st.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Update user profile failed: " + e.getMessage());
         }
         return result;
     }

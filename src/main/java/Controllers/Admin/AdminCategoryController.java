@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author LENOVO
+ * @author Group 2
  */
 public class AdminCategoryController extends HttpServlet {
 

@@ -27,11 +27,14 @@ public class ConvertOrderStatus {
                 break;
             case 5:
                 statusText = "Da nhan hang va thanh toan";
-                break;            
+                break;
+            case 0:
+                statusText = "Đơn hàng mới";
+                break;
         }
         return statusText;
     }
-    
+
     public String convertStatusTag(int status) {
         String statusText = "badge badge-";
         switch (status) {
@@ -49,23 +52,26 @@ public class ConvertOrderStatus {
                 break;
             case 5:
                 statusText += "success";
-                break;            
+                break;
+            case 0:
+                statusText += "info";
+                break;
         }
         return statusText;
     }
-    
+
     public String convertStatusPayment(int payment) {
         String statusText = "";
         switch (payment) {
             case 1:
-                statusText = "Thanh toan khi nhan hang";
+                statusText = "Thanh toán khi nhận hàng";
                 break;
             case 0:
-                statusText = "Thanh toan voi VNPAY";
+                statusText = "Thanh toán với VNPAY";
                 break;
             case 3:
-                statusText = "Xac nhan da thanh toan";
-                break;          
+                statusText = "Xác nhận đã thanh toán";
+                break;
         }
         return statusText;
     }

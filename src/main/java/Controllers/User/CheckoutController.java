@@ -146,6 +146,9 @@ public class CheckoutController extends HttpServlet {
                                 int quantity = cart.getQuantity();
                                 Order_detail orderDetail = new Order_detail(0, result, quantity, productId, productCu.getTitle(), productCu.getPrice(), productCu.getSalePrice(), null);
                                 type = orderDetailDao.addOrderItem(orderDetail);
+                                if (type >= 1) {
+                                    productDao.updateQuantity(productId, productCu.getStock() - quantity);
+                                }
                             }
                         }
                         if (type >= 1) {

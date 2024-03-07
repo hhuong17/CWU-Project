@@ -91,6 +91,12 @@ public class HistoryOrderController extends HttpServlet {
                     List<Order> orders = orderDao.getAllOrderByUser(idUser);
                     request.setAttribute("orders", orders);
                     request.getRequestDispatcher("/User/view/historyOrder.jsp").forward(request, response);
+                } else if (path.startsWith("/CWU/history/order/feedback/delete/")) {
+                    FeedbackDao feedbackDao = new FeedbackDao();
+                    String paths[] = path.split("/");
+                    int idFeedBack = number.getInt(paths[paths.length - 1]);
+                    int result = feedbackDao.delete(idFeedBack);
+                    response.sendRedirect("/CWU/history/order?status=" + result);
                 } else if (path.startsWith("/CWU/history/order/feedback/")) {
                     String paths[] = path.split("/");
                     ProductDao productDao = new ProductDao();
@@ -105,7 +111,7 @@ public class HistoryOrderController extends HttpServlet {
                         request.setAttribute("product", product);
                         if (f != null) {
                             request.setAttribute("feedback", f);
-                            request.getRequestDispatcher("/User/view/feedbackEdit.jsp").forward(request, response);     
+                            request.getRequestDispatcher("/User/view/feedbackEdit.jsp").forward(request, response);
                         } else {
                             request.getRequestDispatcher("/User/view/feedback.jsp").forward(request, response);
                         }

@@ -4,10 +4,8 @@
  */
 package Controllers.User;
 
-import DAO.FeedbackDao;
 import DAO.ProductDao;
 import Libs.NumberCustom;
-import Models.Feedback;
 import Models.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,9 +17,9 @@ import java.util.List;
 
 /**
  *
- * @author group2 
+ * @author Uyen
  */
-public class ProductDetailController extends HttpServlet {
+public class ProductCategoryController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +38,10 @@ public class ProductDetailController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProductDetailController</title>");
+            out.println("<title>Servlet ProductCategoryController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProductDetailController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ProductCategoryController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,30 +60,37 @@ public class ProductDetailController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String path = request.getRequestURI();
-        if (path.startsWith("/CWU/product/detail")) {
-            String paths[] = path.split("/");
+        if (path.startsWith("/CWU/category/")) {
             NumberCustom number = new NumberCustom();
-            int idProduct = number.getInt(paths[paths.length - 1]);
-            ProductDao productDao = new ProductDao();
-            Product product = productDao.getProductActive(idProduct);
-            if (product != null) {
-                FeedbackDao feedBackDao = new FeedbackDao();
-                List<Product> productRelated = productDao.getAllActiveRelated(product.getCategory_id(), product.getId());
-                List<Feedback> feedbacks = feedBackDao.getAllFeedbackOfProduct(idProduct);
-                int totalStart = 0;
-                for (Feedback feedback : feedbacks) {
-                    totalStart += feedback.getRate();
-                }
-                int sizeFeedback = feedbacks.size();
-                int startAverge = sizeFeedback > 0 ? Math.round(totalStart / feedbacks.size()) : 5;
-                request.setAttribute("feedbacks", feedbacks);
-                request.setAttribute("startAverge", startAverge);
-                request.setAttribute("product", product);
-                request.setAttribute("productRelated", productRelated);
-                request.getRequestDispatcher("/User/view/detailProduct.jsp").forward(request, response);
+            String paths[] = path.split("/");
+            int idCategory = 0;
+            if (path.contains("page-")) {
+                idCategory = number.getInt(paths[paths.length - 2]);
             } else {
-                response.sendRedirect("/CWU/404");
+                idCategory = number.getInt(paths[paths.length - 1]);
             }
+            int pageNumber = 1;
+            if (path.startsWith("/CWU/category/" + idCategory + "/page-")) {
+                idCategory = number.getInt(paths[paths.length - 2]);
+                String pathPage[] = (paths[paths.length - 1]).split("-");
+                pageNumber = number.getInt(pathPage[pathPage.length - 1]);
+            }
+            this.productInPage(request, response, idCategory, pageNumber);
+        }
+    }
+
+    private void productInPage(HttpServletRequest request, HttpServletResponse response, int idCategory, int pageNumber) {
+        try {
+            ProductDao productDao = new ProductDao();
+            List<Product> productsInPage = productDao.getAllActivePageInCategory(idCategory, pageNumber, 12);
+            List<Product> products = productDao.getAllActive();
+            request.setAttribute("typePage", "/CWU/category/" + idCategory);
+            request.setAttribute("pageNumber", pageNumber);
+            request.setAttribute("productsInPage", productsInPage);
+            request.setAttribute("products", products);
+            request.getRequestDispatcher("/User/view/product.jsp").forward(request, response);
+        } catch (Exception e) {
+            System.out.println("Error product: " + e);
         }
     }
 

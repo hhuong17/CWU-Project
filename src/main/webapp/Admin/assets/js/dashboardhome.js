@@ -16,6 +16,7 @@ const  filterStatisticBill = (from = false, to = false) => {
         },
         dataType: 'json',
         success: function (data) {
+            console.log(data);
             let resultArray = [];
             data.forEach(item => {
                 const date = item.date;
@@ -54,6 +55,9 @@ const  filterStatisticBill = (from = false, to = false) => {
                         case "5":
                             label = "finish";
                             break;
+                        case "0":
+                            label = "new";
+                            break;
                     }
                     morrisItem[label] = counts[status];
                 }
@@ -68,7 +72,8 @@ const  filterStatisticBill = (from = false, to = false) => {
                         accpet: 0,
                         deliver: 0,
                         shipping: 0,
-                        finish: 0
+                        finish: 0,
+                        new : 0
                     }
                 ];
             }
@@ -80,14 +85,71 @@ const  filterStatisticBill = (from = false, to = false) => {
     });
 }
 
+const  filterStatisticBillInCome = (from = false, to = false) => {
+    let fromValue = "";
+    let toValue = "";
+    if (from && to) {
+        fromValue = document.querySelector(from).value;
+        toValue = document.querySelector(to).value;
+    }
+    var url = '/CWU/admin/dashboard';
+    $.ajax({
+        type: 'Post',
+        url: url,
+        data: {
+            type: "statusBill",
+            from: fromValue,
+            to: toValue
+        },
+        dataType: 'json',
+        success: function (data) {
+            let resultArray = [];
+            let totalByDate = {};
+            data.forEach(item => {
+                const date = item.date;
+                const total = item.total;
+                if (item.status !== 0) {
+                    if (!totalByDate[date]) {
+                        totalByDate[date] = total;
+                    } else {
+                        totalByDate[date] += total;
+                    }
+                }
+            });
+            for (let date in totalByDate) {
+                resultArray.push({date: date, total: totalByDate[date]});
+            }
+            if (resultArray.length == 0) {
+                resultArray = [{date: "",
+                        total: 0}]
+            }
+            chartBar.setData(resultArray);
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
+}
+
 let chartArea = "";
-const statistic = function (ele) {
+let chartBar = "";
+const statistic = function (ele, ele2) {
     chartArea = Morris.Bar({
         element: ele,
         xkey: 'y',
-        ykeys: ['cancel',  "accept", 'deliver', 'shipping', 'finish'],
-        labels: ['Cancel', "Accept", 'Deliver', 'Shipping', 'Finish'],
-        xLabelAngle: 60
+        ykeys: ['cancel', "accept", 'deliver', 'shipping', 'finish', 'new'],
+        labels: ['Cancel', "Accept", 'Deliver', 'Shipping', 'Finish', 'New'],
+        xLabelAngle: 60,
+        hideHover: 'auto', 
+        stacked: true
+    });
+    chartBar = Morris.Bar({
+        element: ele2,
+        xkey: 'date',
+        ykeys: ['total'],
+        labels: ['Total'],
+        xLabelAngle: 60,
     });
     filterStatisticBill();
+    filterStatisticBillInCome();
 }

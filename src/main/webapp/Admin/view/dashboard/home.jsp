@@ -115,13 +115,17 @@
                                                                     </div>
                                                                     <div class="graph-custom-legend clearfix" id="device-sales-legend"></div>
                                                                     <div id="statitis-job-post"></div>
+                                                                    <div class="graph-custom-legend clearfix" id="device-sales-legend">
+                                                                        <h2>Income</h2>
+                                                                    </div>
+                                                                    <div id="statitis-job-income"></div>
                                                                     <script>
                                                                         function validateAndFilter() {
                                                                             var fromDate = document.getElementById('fromPost').value;
                                                                             var toDate = document.getElementById('toPost').value;
-
                                                                             if (fromDate && toDate && fromDate <= toDate) {
                                                                                 filterStatisticBill('#fromPost', '#toPost');
+                                                                                filterStatisticBillInCome('#fromPost', '#toPost');
                                                                             } else {
                                                                                 alert('Hãy chọn thời gian  trong khoản hợp lệ.');
                                                                             }
@@ -202,9 +206,8 @@
         <script src="./Admin/assets/js/dashboard.js"></script>
         <script src="./Admin/assets/js/dashboardhome.js"></script>
         <script>
-            statistic("statitis-job-post");
+            statistic("statitis-job-post", "statitis-job-income");
         </script>
-        
         <!-- End custom js for this page -->
     </body>
 </html>

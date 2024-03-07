@@ -5,12 +5,14 @@
 package Controllers.Admin;
 
 import DAO.CategoryDao;
+import DAO.FeedbackDao;
 import DAO.ProductDao;
 import Libs.Authen;
 import Libs.DateCustom;
 import Libs.NumberCustom;
 import Libs.Upload;
 import Models.Category;
+import Models.Feedback;
 import Models.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -93,6 +95,22 @@ public class AdminProductController extends HttpServlet {
                 int id = number.getInt(paths[paths.length - 1]);
                 int result = productDao.delete(id);
                 response.sendRedirect("/CWU/admin/product?status=" + result);
+            } else if (path.startsWith("/CWU/admin/product/feedback/delete")) {
+                FeedbackDao feedbackDao = new FeedbackDao();
+                String paths[] = path.split("/");
+                int idFeedBack = number.getInt(paths[paths.length - 1]);
+                int idProduct = number.getInt(paths[paths.length - 2]);
+                int result = feedbackDao.delete(idFeedBack);
+                response.sendRedirect("/CWU/admin/product/feedback/"+idProduct+"?status=" + result);
+            } else if (path.startsWith("/CWU/admin/product/feedback")) {
+                String paths[] = path.split("/");
+                int id = number.getInt(paths[paths.length - 1]);
+                FeedbackDao feedbackDao = new FeedbackDao();
+                List<Feedback> feedbacks = feedbackDao.getAllFeedbackOfProduct(id);
+                request.setAttribute("feedbacks", feedbacks);
+                Product p = productDao.getById(id);
+                request.setAttribute("product", p);
+                request.getRequestDispatcher("/Admin/view/product/detail.jsp").forward(request, response);
             } else {
                 List<Product> product = productDao.getAll();
                 request.setAttribute("products", product);

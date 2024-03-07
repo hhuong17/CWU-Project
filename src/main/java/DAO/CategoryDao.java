@@ -47,6 +47,25 @@ public class CategoryDao {
         }
         return categories;
     }
+    
+    public List<Category> getAllActive() {
+        String sql = "Select * from category where status=1";
+        List<Category> categories = new ArrayList<>();
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                int status = rs.getInt("status");
+                Category c = new Category(id, name, status);
+                categories.add(c);
+            }
+        } catch (Exception e) {
+            System.err.println("Get all category fail: " + e);
+        }
+        return categories;
+    }
 
     public Category getById(int id) {
         String sql = "Select * from category where id=?";
@@ -127,5 +146,4 @@ public class CategoryDao {
         }
         return result;
     }
-
 }

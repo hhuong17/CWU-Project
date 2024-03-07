@@ -4,10 +4,8 @@
  */
 package Controllers.User;
 
-import DAO.FeedbackDao;
 import DAO.ProductDao;
 import Libs.NumberCustom;
-import Models.Feedback;
 import Models.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,9 +17,9 @@ import java.util.List;
 
 /**
  *
- * @author group2 
+ * @author Uyen
  */
-public class ProductDetailController extends HttpServlet {
+public class ProductController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +38,10 @@ public class ProductDetailController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProductDetailController</title>");
+            out.println("<title>Servlet ProductController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProductDetailController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ProductController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,30 +60,30 @@ public class ProductDetailController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String path = request.getRequestURI();
-        if (path.startsWith("/CWU/product/detail")) {
-            String paths[] = path.split("/");
+        int pageNumber = 1;
+        if(path.endsWith("/CWU/product")) {
+            pageNumber = 1;
+        } else if(path.startsWith("/CWU/product/page-")) {
             NumberCustom number = new NumberCustom();
-            int idProduct = number.getInt(paths[paths.length - 1]);
+            String paths[] = path.split("/");
+            String pathPage[] = (paths[paths.length -1]).split("-");
+            pageNumber = number.getInt(pathPage[pathPage.length - 1]);
+        }
+        this.productInPage(request, response, pageNumber);
+    }
+
+    private void productInPage(HttpServletRequest request, HttpServletResponse response, int pageNumber) {
+        try {
             ProductDao productDao = new ProductDao();
-            Product product = productDao.getProductActive(idProduct);
-            if (product != null) {
-                FeedbackDao feedBackDao = new FeedbackDao();
-                List<Product> productRelated = productDao.getAllActiveRelated(product.getCategory_id(), product.getId());
-                List<Feedback> feedbacks = feedBackDao.getAllFeedbackOfProduct(idProduct);
-                int totalStart = 0;
-                for (Feedback feedback : feedbacks) {
-                    totalStart += feedback.getRate();
-                }
-                int sizeFeedback = feedbacks.size();
-                int startAverge = sizeFeedback > 0 ? Math.round(totalStart / feedbacks.size()) : 5;
-                request.setAttribute("feedbacks", feedbacks);
-                request.setAttribute("startAverge", startAverge);
-                request.setAttribute("product", product);
-                request.setAttribute("productRelated", productRelated);
-                request.getRequestDispatcher("/User/view/detailProduct.jsp").forward(request, response);
-            } else {
-                response.sendRedirect("/CWU/404");
-            }
+            List<Product> productsInPage = productDao.getAllActivePage(pageNumber, 12);
+            List<Product> products = productDao.getAllActive();
+            request.setAttribute("pageNumber", pageNumber);
+             request.setAttribute("typePage","/CWU/product");
+            request.setAttribute("productsInPage", productsInPage);
+            request.setAttribute("products", products);
+            request.getRequestDispatcher("/User/view/product.jsp").forward(request, response);
+        } catch(Exception e) {
+            System.out.println("Error product: " + e);
         }
     }
 
@@ -100,7 +98,16 @@ public class ProductDetailController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        if(request.getParameter("btn-search") != null) {
+            String keySearch = request.getParameter("key-search");
+            ProductDao productDao = new ProductDao();
+            List<Product> productSInPage = productDao.getAllActiveSearch(keySearch);
+            request.setAttribute("productsInPage", productSInPage);
+            request.setAttribute("keySearch", keySearch);
+            String headingMessage = "Result for '" + keySearch+"' is " + productSInPage.size() + ".";
+            request.setAttribute("headingMessage", headingMessage);
+            request.getRequestDispatcher("/User/view/product.jsp").forward(request, response);
+        }
     }
 
     /**

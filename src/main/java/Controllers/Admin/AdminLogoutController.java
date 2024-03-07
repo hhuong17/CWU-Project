@@ -13,6 +13,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -58,9 +59,16 @@ public class AdminLogoutController extends HttpServlet {
         Authen auth = new Authen();
         if (auth.isLogigAdmin(request) != null) {
             Cookie cookie = new Cookie("usernameAdmin", null);
+            Cookie cookieId = new Cookie("idAdmin", null);
             cookie.setMaxAge(0);
             cookie.setPath("/");
             response.addCookie(cookie);
+            cookieId.setMaxAge(0);
+            cookieId.setPath("/");
+            response.addCookie(cookieId);
+            HttpSession session = request.getSession();
+            session.removeAttribute("idAdmin");
+            session.removeAttribute("usernameAdmin");
         }
         response.sendRedirect("/CWU/admin/login");
     } 

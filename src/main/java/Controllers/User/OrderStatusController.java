@@ -74,10 +74,9 @@ public class OrderStatusController extends HttpServlet {
             CartDao cartDao = new CartDao();
             int idUser = number.getInt(session.getAttribute("idUser") + "");
             String typePayment = session.getAttribute("type_method") + "";
-            if(typePayment.equals("null")) {
+            if (typePayment.equals("null")) {
                 response.sendRedirect("/CWU/404");
-            } else
-            if (typePayment.equals("vnpay")) {
+            } else if (typePayment.equals("vnpay")) {
                 String transactionStatus = request.getParameter("vnp_TransactionStatus");
                 if (transactionStatus.equals("00")) {
                     Order order = (Order) session.getAttribute("orderSession");
@@ -95,6 +94,9 @@ public class OrderStatusController extends HttpServlet {
                                 int quantity = cart.getQuantity();
                                 Order_detail orderDetail = new Order_detail(0, result, quantity, productId, productCu.getTitle(), productCu.getPrice(), productCu.getSalePrice(), null);
                                 type = orderDetailDao.addOrderItem(orderDetail);
+                                if (type >= 1) {
+                                    productDao.updateQuantity(productId, productCu.getStock() - quantity);
+                                }
                             }
                         }
                         if (type >= 1) {

@@ -1,7 +1,7 @@
 <%-- 
     Document   : confirmPayment
     Created on : Feb 28, 2024, 11:57:50 AM
-    Author     : Group 2
+    Author     : Admin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

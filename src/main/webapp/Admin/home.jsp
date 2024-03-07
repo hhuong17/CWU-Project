@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : Feb 27, 2024, 11:00:50 PM
-    Author     : Group 2
+    Author     : LENOVO
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

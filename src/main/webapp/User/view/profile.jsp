@@ -1,7 +1,7 @@
 <%-- 
     Document   : profile
     Created on : Mar 5, 2024, 12:51:47 AM
-    Author     : Group 2
+    Author     : Le Tan Kim
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

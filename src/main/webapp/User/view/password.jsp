@@ -1,7 +1,7 @@
 <%-- 
     Document   : password
     Created on : Mar 5, 2024, 1:01:54 AM
-    Author     : Group 2
+    Author     : Le Tan Kim
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

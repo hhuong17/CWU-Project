@@ -1,7 +1,7 @@
 <%-- 
     Document   : login
     Created on : Feb 28, 2024, 4:05:36 PM
-    Author     : Group 2
+    Author     : Admin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -48,7 +48,7 @@
                                             <input type="password" id="typePasswordX" name="password" placeholder="Pasword" class="form-control form-control-lg" />
                                             <label class="form-label" for="typePasswordX"></label>
                                         </div>
-                                        <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+                                        <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="/CWU/admin/forget-password">Forgot password?</a></p>
                                         <button class="btn btn-outline-light btn-lg px-5" type="submit" name="btn-login">Login</button>
                                     </form>
                                     <div class="d-flex justify-content-center text-center mt-4 pt-1">
@@ -58,11 +58,6 @@
                                     </div>
 
                                 </div>
-                                <div>
-                                    <p class="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
-                                    </p>
-                                </div>
-
                             </div>
                         </div>
                     </div>

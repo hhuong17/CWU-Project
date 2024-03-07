@@ -1,7 +1,7 @@
 <%-- 
     Document   : category
     Created on : Feb 27, 2024, 11:07:52 PM
-    Author     : Group 2
+    Author     : LENOVO
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -49,6 +49,7 @@
 
                                                     <td> 
                                                         <a href="/CWU/admin/product/edit/${product.id}" class="btn btn-success">Chinh sua</a>
+                                                        <a href="/CWU/admin/product/feedback/${product.id}" class="btn btn-success">Chi tiet</a>
                                                         <a href="/CWU/admin/product/delete/${product.id}" class="btn btn-danger" onclick=" return confirm('Are your sure to delete this?')">Xoa</a>
                                                     </td>
                                                 </tr>

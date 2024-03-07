@@ -1,7 +1,7 @@
 <%-- 
     Document   : sidebart
     Created on : Feb 27, 2024, 10:59:33 PM
-    Author     : Group 2
+    Author     : LENOVO
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -48,6 +48,13 @@
             <a class="nav-link"  href="/CWU/admin/user" >
                 <span class="icon-bg"><i class="mdi mdi-lock menu-icon"></i></span>
                 <span class="menu-title">User Account Management</span>
+                <i class="menu-arrow"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  href="/CWU/admin/blog" >
+                <span class="icon-bg"><i class="mdi mdi-lock menu-icon"></i></span>
+                <span class="menu-title">Blog Management</span>
                 <i class="menu-arrow"></i>
             </a>
         </li>

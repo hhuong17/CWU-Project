@@ -1,7 +1,7 @@
 <%-- 
     Document   : checkout
     Created on : Mar 4, 2024, 2:30:21 PM
-    Author     : Group 2
+    Author     : Le Tan Kim
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

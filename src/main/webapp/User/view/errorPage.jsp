@@ -1,7 +1,7 @@
 <%-- 
     Document   : errorPage
     Created on : Mar 5, 2024, 12:01:17 AM
-    Author     : Group 2
+    Author     : Le Tan Kim
 --%>
 
 

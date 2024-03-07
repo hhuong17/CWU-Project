@@ -1,7 +1,7 @@
 <%-- 
     Document   : feedback
     Created on : Mar 5, 2024, 11:46:27 AM
-    Author     : Group 2
+    Author     : Le Tan Kim
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

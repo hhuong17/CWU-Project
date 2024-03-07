@@ -1,11 +1,12 @@
 <%-- 
     Document   : detailProduct
     Created on : Mar 4, 2024, 10:04:18 AM
-    Author     : Group 2
+    Author     : Le Tan Kim
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="getCurrency" class="Libs.Currency" scope="page" />
+<jsp:useBean id="getLib" class="Libs.AdminGetLib" scope="page" />
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,18 +38,15 @@
                         <h3>${product.title}</h3>
                         <div class="rating d-flex">
                             <p class="text-left mr-4">
-                                <a href="#" class="mr-2">5.0</a>
-                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                            </p>
-                            <p class="text-left mr-4">
-                                <a href="#" class="mr-2" style="color: #000;">100 <span style="color: #bbb;">Rating</span></a>
-                            </p>
-                            <p class="text-left">
-                                <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Sold</span></a>
+                                <a href="#" class="mr-2">${startAverge}</a>
+                                <c:forEach begin="0" end="${startAverge - 1}">
+                                    <a><span class="ion-ios-star"></span></a>
+                                    </c:forEach>
+                                    <c:if test="${(5 - (startAverge)) > 0}">
+                                        <c:forEach begin="0" end="${(5 - (startAverge) - 1)}">
+                                        <a><span class="ion-ios-star-outline"></span></a>
+                                        </c:forEach>
+                                    </c:if>
                             </p>
                         </div>
                         <p class="price">
@@ -96,6 +94,52 @@
             </div>
         </section>
 
+        <section class="ftco-section ftco-degree-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 ftco-animate">
+                        <div class="pt-5 mt-5">
+                            <h3 class="mb-5">${feedbacks.size()} feedback</h3>
+                            <ul class="comment-list">
+                                <c:forEach items="${feedbacks}" var="feed">
+                                    <c:set value="${getLib.getUser(feed.userId)}" var="user"/>
+                                    <c:if test="${user != null}">
+                                        <li class="comment">
+                                            <div class="vcard bio">
+                                                <img src="${user.avatar == null ? "./img/defaul.jpg" : user.avatar}" alt="Image placeholder">
+                                            </div>
+                                            <div class="comment-body">
+                                                <h3>${user.fullName}</h3>
+                                                <div class="meta">
+                                                    ${feed.feedbackDate}
+                                                    <c:forEach begin="0" end="${feed.rate - 1}">
+                                                        <a><span style="color: yellow" class="ion-ios-star"></span></a>
+                                                        </c:forEach>
+                                                        <c:if test="${(5 - (feed.rate)) > 0}">
+                                                            <c:forEach begin="0" end="${(5 - (feed.rate)) - 1}">
+                                                            <a><span class="ion-ios-star-outline"></span></a>
+                                                            </c:forEach>
+                                                        </c:if>
+                                                </div>
+                                                <p>${feed.feedbackContent}</p>
+                                                <p>
+                                                    <c:if test="${feed.image != null}">
+                                                        <img style="width: 150px" src="${feed.image}" alt="Image feedback"/>
+                                                    </c:if>
+                                                </p>
+                                                <c:if test="${sessionScope.idUser != null && user.id == sessionScope.idUser}">
+                                                     <p><a href="/CWU/history/order/feedback/delete/${feed.id}" class="reply">Delete</a></p>
+                                                </c:if>
+                                            </div>
+                                        </li>
+                                    </c:if>
+                                </c:forEach>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>                    
         <section class="ftco-section">
             <div class="container">
                 <div class="row justify-content-center mb-3 pb-3">

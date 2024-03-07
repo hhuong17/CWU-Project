@@ -1,7 +1,7 @@
 <%-- 
     Document   : detailOrderHistory
     Created on : Mar 5, 2024, 10:57:39 AM
-    Author     : Group 2
+    Author     : Le Tan Kim
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Payment </label>
-                                <input readonly type="text" class="form-control" value="${getStatusOrder.statusPayment(payment)}">
+                                <input readonly type="text" class="form-control" value="${getStatusOrder.statusPayment(order.payment)}">
                             </div>
                             <div class="form-group">
                                 <label>Status </label>

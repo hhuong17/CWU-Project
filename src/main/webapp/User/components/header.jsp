@@ -1,7 +1,7 @@
 <%-- 
     Document   : header
     Created on : Mar 4, 2024, 12:48:42 AM
-    Author     : Group 2
+    Author     : Le Tan Kim
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -50,7 +50,7 @@
                     </div>
                 </li>
                 <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="/CWU/blog" class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                     <c:if test="${sessionScope.idUser != null}">
                         <c:set value="${getCategoryLib.getUser(sessionScope.idUser)}" var="user"/>

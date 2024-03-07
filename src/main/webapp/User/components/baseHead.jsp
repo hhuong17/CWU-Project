@@ -1,7 +1,7 @@
 <%-- 
     Document   : baseHead
     Created on : Mar 4, 2024, 12:49:13 AM
-    Author     : Group 2
+    Author     : Le Tan Kim
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

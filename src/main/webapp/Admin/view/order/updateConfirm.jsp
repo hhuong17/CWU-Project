@@ -1,7 +1,7 @@
 <%-- 
     Document   : update
     Created on : Feb 28, 2024, 9:11:10 AM
-    Author     : LENOVO
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

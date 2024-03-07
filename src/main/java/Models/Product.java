@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 
 /**
  *
- * @author LENOVO
+ * @author Group 2
  */
 public class Product {
     private int id;

@@ -1,7 +1,7 @@
 <%-- 
     Document   : forgetPassword
     Created on : Mar 5, 2024, 8:48:19 PM
-    Author     : Le Tan Kim
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

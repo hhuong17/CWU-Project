@@ -6,7 +6,7 @@ package Models;
 
 /**
  *
- * @author Tran Tri Tin
+ * @author Group 2
  */
 public class Cart {
     private int id;

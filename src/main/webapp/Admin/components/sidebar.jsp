@@ -1,7 +1,7 @@
 <%-- 
     Document   : sidebart
     Created on : Feb 27, 2024, 10:59:33 PM
-    Author     : LENOVO
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

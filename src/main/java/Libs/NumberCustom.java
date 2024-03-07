@@ -6,7 +6,7 @@ package Libs;
 
 /**
  *
- * @author LENOVO
+ * @author Group 2
  */
 public class NumberCustom {
     public int getInt(String input) {

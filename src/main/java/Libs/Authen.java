@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpSession;
 
 /**
  *
- * @author Admin
+ * @author Group 2
  */
 public class Authen {
     public String isLogigAdmin(HttpServletRequest request) {

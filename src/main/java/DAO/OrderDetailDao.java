@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  *
- * @author Admin
+ * @author Group 2
  */
 public class OrderDetailDao {
     

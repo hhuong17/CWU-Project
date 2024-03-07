@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 
 /**
  *
- * @author Le Tan Kim
+ * @author Group 2
  */
 public class FeedbackDao {
     private Connection conn;

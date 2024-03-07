@@ -6,7 +6,7 @@ package Models;
 
 /**
  *
- * @author LENOVO
+ * @author Group 2
  */
 public class Category {
     private int id;

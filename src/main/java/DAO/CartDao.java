@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  *
- * @author Le Tan Kim
+ * @author Group 2
  */
 public class CartDao {
 

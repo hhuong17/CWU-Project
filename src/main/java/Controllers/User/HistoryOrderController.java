@@ -32,7 +32,7 @@ import java.util.List;
 
 /**
  *
- * @author Group2
+ * @author Group 2
  */
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2 MB
         maxFileSize = 1024 * 1024 * 10, // 10 MB

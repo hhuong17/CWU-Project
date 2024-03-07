@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author Group 2
  */
 public class AdminHomeController extends HttpServlet {
    

@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Le Tan Kim
+ * @author Group 2
  */
 public class ForgetPassword extends HttpServlet {
 

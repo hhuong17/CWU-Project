@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author LENOVO
+ * @author Group 2
  */
 public class DBConnection {
 //    private static final String urlConnect = "jdbc:sqlserver://LAPTOP-5O12M7IG:1433;databaseName=CWUproject;user=sa;password=sa;encrypt=true;trustServerCertificate=true;";

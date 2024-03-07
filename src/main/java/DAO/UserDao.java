@@ -6,7 +6,7 @@ package DAO;
 
 /**
  *
- * @author Admin
+ * @author Group 2
  */
 import Models.User;
 import java.sql.*;

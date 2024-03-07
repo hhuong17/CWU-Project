@@ -8,7 +8,7 @@ import java.security.SecureRandom;
 
 /**
  *
- * @author Le Tan Kim
+ * @author Group 2
  */
 public class NewPassword {
     public String generatePassword(int lengthOfPassword) {

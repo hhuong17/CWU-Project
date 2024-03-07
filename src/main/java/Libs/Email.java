@@ -17,7 +17,7 @@ import java.util.Properties;
 
 /**
  *
- * @author Le Tan Kim
+ * @author Group 2
  */
 
 public class Email {

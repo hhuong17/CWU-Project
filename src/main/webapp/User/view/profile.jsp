@@ -1,7 +1,7 @@
 <%-- 
     Document   : profile
     Created on : Mar 5, 2024, 12:51:47 AM
-    Author     : Group2
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

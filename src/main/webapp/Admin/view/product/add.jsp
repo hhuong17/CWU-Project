@@ -1,7 +1,7 @@
 <%-- 
     Document   : add
     Created on : Feb 27, 2024, 11:10:45 PM
-    Author     : LENOVO
+    Author     : Group 2
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

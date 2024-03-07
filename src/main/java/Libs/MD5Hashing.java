@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  *
- * @author LENOVO
+ * @author Group 2
  */
 public class MD5Hashing {
     public String hashPassword(String input) {

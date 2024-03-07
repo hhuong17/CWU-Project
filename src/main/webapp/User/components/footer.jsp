@@ -1,7 +1,7 @@
 <%-- 
     Document   : footer
     Created on : Mar 4, 2024, 12:51:33 AM
-    Author     : Admin
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : delete
     Created on : Feb 28, 2024, 1:54:26 PM
-    Author     : LENOVO
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

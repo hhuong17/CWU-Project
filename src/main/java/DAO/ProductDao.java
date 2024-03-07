@@ -29,6 +29,21 @@ public class ProductDao {
             this.conn = null;
         }
     }
+    
+    public int updateQuantity(int id, int stock) {
+        String sql = "update Product set stock=? where id=?";
+        int result = 0;
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, stock);
+            st.setInt(2, id);
+            result = st.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Update quantity product: " + e);
+        }
+        return result;
+    }
+    
 
     public List<Product> getAll() {
         String sql = "select * from Product";

@@ -1,7 +1,7 @@
 <%-- 
     Document   : detail
     Created on : Mar 5, 2024, 11:28:41 PM
-    Author     : Le Tan Kim
+    Author     : Admin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

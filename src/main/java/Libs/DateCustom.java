@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 /**
  *
- * @author Admin
+ * @author Group 2
  */
 public class DateCustom {
     public Timestamp getCurrentTime() {

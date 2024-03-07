@@ -20,7 +20,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 /**
  *
- * @author Admin
+ * @author Group 2
  */
 public class AdminDashBoardController extends HttpServlet {
    

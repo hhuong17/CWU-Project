@@ -13,7 +13,7 @@ import Models.Product;
 
 /**
  *
- * @author Admin
+ * @author Group 2
  */
 public class AdminGetLib {
     public Product getProduct(int id) {

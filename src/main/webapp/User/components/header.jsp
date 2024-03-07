@@ -1,7 +1,7 @@
 <%-- 
     Document   : header
     Created on : Mar 4, 2024, 12:48:42 AM
-    Author     : Admin
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

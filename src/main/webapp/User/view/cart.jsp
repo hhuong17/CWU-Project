@@ -1,7 +1,7 @@
 <%-- 
     Document   : cart
     Created on : Mar 4, 2024, 12:03:21 PM
-    Author     : Tran Tri Tin
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

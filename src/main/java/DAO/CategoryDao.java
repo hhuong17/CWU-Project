@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  *
- * @author LENOVO
+ * @author Group 2
  */
 public class CategoryDao {
 

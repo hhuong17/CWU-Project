@@ -1,7 +1,7 @@
 <%-- 
     Document   : home
     Created on : Mar 1, 2024, 11:59:59 PM
-    Author     : Admin
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

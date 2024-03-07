@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author LENOVO
+ * @author Group 2
  */
 public class Upload {
     public String uploadImg(Part filePart, String uploadPath) {

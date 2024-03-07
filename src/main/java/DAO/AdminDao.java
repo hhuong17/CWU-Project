@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 
 /**
  *
- * @author Admin
+ * @author Group 2
  */
 public class AdminDao {
 

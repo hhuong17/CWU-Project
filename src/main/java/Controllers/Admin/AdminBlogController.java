@@ -94,8 +94,8 @@ public class AdminBlogController extends HttpServlet {
             } else if(path.startsWith("/CWU/admin/blog/delete")) {
                  String paths[] = path.split("/");
                 int id = number.getInt(paths[paths.length - 1]);
-                int result = blogDao.deleteBlog(id);
-                response.sendRedirect("/CWU/admin/blog?status=" + result);
+//                int result = blogDao.deleteBlog(id);
+//                response.sendRedirect("/CWU/admin/blog?status=" + result);
             }
         } else {
             response.sendRedirect("/CWU/admin/login");

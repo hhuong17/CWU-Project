@@ -156,17 +156,4 @@ public class BlogDao {
         }
         return result;
     }
-
-    public int deleteBlog(int id) {
-        String sql = "delete from blog where id=?";
-        int result = 0;
-        try {
-            PreparedStatement st = conn.prepareStatement(sql);
-            st.setInt(1, id);
-            result = st.executeUpdate();
-        } catch (Exception e) {
-            System.out.println("Delete blog: " + e);
-        }
-        return result;
-    }
 }

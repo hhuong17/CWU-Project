@@ -51,7 +51,7 @@ public class BlogDao {
         }
         return blogs;
     }
-    
+
     public List<Blog> getAllActive() {
         String sql = "select * from blog where status=1";
         List<Blog> blogs = new ArrayList<>();
@@ -74,7 +74,7 @@ public class BlogDao {
         }
         return blogs;
     }
-    
+
     public Blog getByIdActive(int id) {
         String sql = "select * from blog where id=? and status=1";
         try {
@@ -153,6 +153,19 @@ public class BlogDao {
             result = st.executeUpdate();
         } catch (Exception e) {
             System.out.println("Add blog: " + e);
+        }
+        return result;
+    }
+
+    public int deleteBlog(int id) {
+        String sql = "delete from blog where id=?";
+        int result = 0;
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, id);
+            result = st.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Delete blog: " + e);
         }
         return result;
     }

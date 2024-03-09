@@ -21,7 +21,7 @@
                         <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Cinh sua thong tin nguoi dung</h4>
+                                    <h4 class="card-title">Update User</h4>
                                     <form class="forms-sample" action="/CWU/admin/user"  method="post">
                                         <div class="form-group">
                                             <label>Email</label>
@@ -48,12 +48,12 @@
                                             <label>Gender</label>
                                             <select class="form-control" id="exampleSelectGender" name="gender">
                                                 <option value="0" ${user.gender == 0 ? "selected" : ""}>Nam</option>
-                                                <option value="1" ${user.gender == 1 ? "selected" : ""}>Nu</option>
+                                                <option value="1" ${user.gender == 1 ? "selected" : ""}>Nữ</option>
                                             </select>
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleSelectGender">Trạng thái</label>
+                                            <label for="exampleSelectGender">Status</label>
                                             <select class="form-control" id="exampleSelectGender" name="status">
                                                 <option value="1" ${user.status==1 ? "selected" : ""}>Active</option>
                                                 <option value="0" ${user.status==0 ? "selected" : ""}>Ban</option>

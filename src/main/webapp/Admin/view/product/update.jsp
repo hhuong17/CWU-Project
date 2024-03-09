@@ -22,10 +22,10 @@
                             <div class="col-12 grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Sửa danh mục</h4>
+                                        <h4 class="card-title">Update product</h4>
                                         <form class="forms-sample" action="/CWU/admin/product"  method="post" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <label for="exampleSelectGender">Danh muc</label>
+                                                <label for="exampleSelectGender">Category</label>
                                                 <select class="form-control" id="exampleSelectGender" name="category">
                                                     <c:forEach items="${categories}" var="cat">
                                                          <option value="${cat.id}" ${cat.id == product.category_id ? "selected" : ""}>${cat.name}</option>
@@ -33,18 +33,18 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Tieu de</label>
+                                                <label>Title</label>
                                                 <input id="category" type="hidden" class="form-control" placeholder="Tieu de" name="id" value="${product.id}">
                                                 <input id="category" type="text" class="form-control" placeholder="Tieu de" name="title" value="${product.title}">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label>Gia</label>
+                                                <label>Price</label>
                                                 <input id="category" type="text" class="form-control" placeholder=Gia" name="price" value="${product.price}">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label>Gia sale</label>
+                                                <label>Price after discount</label>
                                                 <input id="category" type="text" class="form-control" placeholder="Gia sale" name="priceSale" value="${product.salePrice}">
                                                 <span class = 'message_error'></span>
                                             </div>
@@ -54,13 +54,13 @@
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label>Mo ta</label>
+                                                <label>Description</label>
                                                 <input id="category" type="text" class="form-control" placeholder="Mo ta" name="desc" value="${product.description}">
                                                 
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label>Hinh anh</label>
+                                                <label>Image</label>
                                                 <input id="category" type="file" class="form-control" placeholder="Hinh anh" name="image">
                                                 <input id="category" type="hidden" class="form-control" placeholder="Hinh anh" name="oldImage" value="${product.image}">
                                                 <img src="${product.image}" alt="alt"/>

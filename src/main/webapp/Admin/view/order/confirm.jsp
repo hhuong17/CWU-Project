@@ -39,7 +39,7 @@
                                                 <th> Order date </th>
                                                 <th> Payment </th>
                                                 <th> Status </th>
-                                                <th> X? lí </th>
+                                                <th> Action </th>
                                             </tr>
                                         </thead>
                                         <tbody>

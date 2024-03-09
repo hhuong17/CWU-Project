@@ -22,7 +22,7 @@
                         <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Chi tiet don hang</h4>
+                                    <h4 class="card-title">Order details</h4>
                                     <div>
                                         <form class="forms-sample" action="/CWU/admin/product"  method="post" enctype="multipart/form-data">
                                             <div class="form-group">
@@ -84,14 +84,14 @@
                                     <form class="forms-sample" action="/CWU/admin/order"  method="post">
                                         <div class="form-group">
                                             <input id="category" type="hidden" class="form-control" name="id" value="${order.id}">
-                                            <label for="exampleSelectGender">Trạng thái</label>
+                                            <label for="exampleSelectGender">Status</label>
                                             <select class="form-control" id="exampleSelectGender" name="payment">
                                                 <option value="1" ${order.payment == 0 ? "selected" : ""}>Thanh toan voi VNPAY</option>
                                                 <option value="2" ${order.payment == 1 ? "selected" : ""}>Thanh toan khi nhan hang</option>
                                                 <option value="3" ${order.payment == 2 ? "selected" : ""}>Xac nhan da nhan thanh toan</option>
                                             </select>
                                         </div>
-                                        <button id="add-new" type="submit" class="btn btn-primary mr-2" name="update-order-payment">Cap nhat</button>
+                                        <button id="add-new" type="submit" class="btn btn-primary mr-2" name="update-order-payment">Update</button>
                                     </form>
                                 </div>
                             </div>

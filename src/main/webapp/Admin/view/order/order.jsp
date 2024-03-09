@@ -39,7 +39,7 @@
                                                 <th> Order date </th>
                                                 <th> Payment </th>
                                                 <th> Status </th>
-                                                <th> X? lí </th>
+                                                <th> Action </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -55,8 +55,8 @@
                                                         <span class="${convertStatus.convertStatusTag(order.status)}">${convertStatus.convertStatus(order.status)}</span>
                                                     </td>
                                                     <td> 
-                                                        <a href="/CWU/admin/order/edit/${order.id}" class="btn btn-success">Thay doi trang thai</a>
-                                                        <a href="/CWU/admin/order/detail/${order.id}" class="btn btn-info">Chi tiet</a>
+                                                        <a href="/CWU/admin/order/edit/${order.id}" class="btn btn-success">Change status</a>
+                                                        <a href="/CWU/admin/order/detail/${order.id}" class="btn btn-info">Details</a>
                                                     </td>
                                                 </tr>
                                             </c:forEach>

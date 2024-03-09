@@ -43,12 +43,12 @@
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label>Gia</label>
+                                            <label>Price</label>
                                             <input id="category" type="text" class="form-control" value="${product.price}" readonly>
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label>Gia sale</label>
+                                            <label>Price after discount</label>
                                             <input id="category" type="text" class="form-control"value="${product.salePrice}" readonly>
                                             <span class = 'message_error'></span>
                                         </div>
@@ -58,12 +58,12 @@
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label>Mo ta</label>
+                                            <label>Description</label>
                                             <input id="category" type="text" class="form-control" value="${product.description}" readonly>
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label>Hinh anh</label>
+                                            <label>Image</label>
                                             <img src="${product.image}" alt="alt"/>
                                             <span class = 'message_error'></span>
                                         </div> 

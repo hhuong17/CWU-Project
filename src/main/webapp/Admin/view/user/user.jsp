@@ -39,7 +39,7 @@
                                                 <th> Address </th>
                                                 <th> Gender </th>
                                                 <th> Status </th>
-                                                <th> Xu li </th>
+                                                <th> Action </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -53,8 +53,8 @@
                                                     <td> <span class="badge badge-warning">${user.gender == 1 ? "Nu" : "Nam"}</span> </td>
                                                     <td> ${user.status == 1 ? "Hoat dong" : "Dang khoa"} </td>
                                                    <td> 
-                                                       <a href="/CWU/admin/user/edit/${user.id}" class="btn btn-success">Chinh sua</a>
-                                                       <a href="/CWU/admin/user/delete/${user.id}" class="btn btn-danger" onclick=" return confirm('Are your sure to delete this?')">Xoa</a>
+                                                       <a href="/CWU/admin/user/edit/${user.id}" class="btn btn-success">Update</a>
+                                                       <a href="/CWU/admin/user/delete/${user.id}" class="btn btn-danger" onclick=" return confirm('Are your sure to delete this?')">Delete</a>
                                                    </td>
                                                 </tr>
                                             </c:forEach>

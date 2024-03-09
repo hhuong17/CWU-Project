@@ -22,7 +22,7 @@
                         <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Chi tiet don hang</h4>
+                                    <h4 class="card-title">Order details</h4>
                                     <div>
                                         <form class="forms-sample" action="/CWU/admin/product"  method="post" enctype="multipart/form-data">
                                             <div class="form-group">

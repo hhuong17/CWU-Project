@@ -1,7 +1,7 @@
 <%-- 
     Document   : add
     Created on : Feb 27, 2024, 11:10:45 PM
-    Author     : LENOVO
+    Author     : Group 2
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -22,10 +22,10 @@
                             <div class="col-12 grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Thêm mới san pham</h4>
+                                        <h4 class="card-title">Add new product</h4>
                                         <form class="forms-sample" action="/CWU/admin/product"  method="post" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <label for="exampleSelectGender">Danh muc</label>
+                                                <label for="exampleSelectGender">Category</label>
                                                 <select class="form-control" id="exampleSelectGender" name="category">
                                                     <c:forEach items="${categories}" var="cat">
                                                          <option value="${cat.id}">${cat.name}</option>
@@ -33,43 +33,43 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Tieu de</label>
-                                                <input id="category" type="text" class="form-control" placeholder="Tieu de" name="title">
+                                                <label>Title</label>
+                                                <input id="category" type="text" class="form-control"  name="title">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label>Gia</label>
-                                                <input id="category" type="text" class="form-control" placeholder=Gia" name="price">
+                                                <label>Price</label>
+                                                <input id="category" type="text" class="form-control"  name="price">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label>Gia sale</label>
-                                                <input id="category" type="text" class="form-control" placeholder="Gia sale" name="priceSale">
+                                                <label>Price after discount</label>
+                                                <input id="category" type="text" class="form-control"  name="priceSale">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
                                                 <label>Stock</label>
-                                                <input id="category" type="text" class="form-control" placeholder="Stock" name="stock">
+                                                <input id="category" type="text" class="form-control"  name="stock">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label>Mo ta</label>
-                                                <input id="category" type="text" class="form-control" placeholder="Mo ta" name="desc">
+                                                <label>Description</label>
+                                                <input id="category" type="text" class="form-control"  name="desc">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label>Hinh anh</label>
-                                                <input id="category" type="file" class="form-control" placeholder="Hinh anh" name="image">
+                                                <label>Image</label>
+                                                <input id="category" type="file" class="form-control"  name="image">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleSelectGender">Trạng thái</label>
+                                                <label for="exampleSelectGender">Status</label>
                                                 <select class="form-control" id="exampleSelectGender" name="status">
-                                                    <option value="1">Bình thường</option>
-                                                    <option value="0">Ẩn</option>
+                                                    <option value="1">Normal</option>
+                                                    <option value="0">Hide</option>
                                                 </select>
                                             </div>
-                                            <button id="add-new" type="submit" class="btn btn-primary mr-2" name="add-new">Thêm mới</button>
+                                            <button id="add-new" type="submit" class="btn btn-primary mr-2" name="add-new">Add</button>
                                         </form>
                                     </div>
                                 </div>

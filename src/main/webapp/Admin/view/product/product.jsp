@@ -1,7 +1,7 @@
 <%-- 
     Document   : category
     Created on : Feb 27, 2024, 11:07:52 PM
-    Author     : LENOVO
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -33,9 +33,9 @@
                                         <thead>
                                             <tr>
                                                 <th> # </th>
-                                                <th> Tiêu de </th>
-                                                <th> Hinh anh </th>
-                                                <th> Xử lí </th>
+                                                <th> Title </th>
+                                                <th> Image </th>
+                                                <th> Action </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -48,9 +48,9 @@
                                                     </td>
 
                                                     <td> 
-                                                        <a href="/CWU/admin/product/edit/${product.id}" class="btn btn-success">Chinh sua</a>
-                                                        <a href="/CWU/admin/product/feedback/${product.id}" class="btn btn-success">Chi tiet</a>
-                                                        <a href="/CWU/admin/product/delete/${product.id}" class="btn btn-danger" onclick=" return confirm('Are your sure to delete this?')">Xoa</a>
+                                                        <a href="/CWU/admin/product/edit/${product.id}" class="btn btn-success">Update</a>
+                                                        <a href="/CWU/admin/product/feedback/${product.id}" class="btn btn-success">Details</a>
+                                                        <a href="/CWU/admin/product/delete/${product.id}" class="btn btn-danger" onclick=" return confirm('Are your sure to delete this?')">Delete</a>
                                                     </td>
                                                 </tr>
                                             </c:forEach>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : feedback
     Created on : Mar 5, 2024, 11:46:27 AM
-    Author     : Admin
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Feed back</title>
+        <title>Feedback</title>
         <%@include file="../components/baseHead.jsp" %>
     </head>
     <body class="goto-here">
@@ -20,7 +20,7 @@
                 <div class="row block-9">
                     <div class="col-md-10 order-md-last d-flex">
                         <form action="/CWU/history/order" method="post" class="bg-white p-5 contact-form" enctype="multipart/form-data">
-                            <h2>Feed back</h2>
+                            <h2>Feedback</h2>
                             <div class="form-group">
                                 <label>Product</label>
                                 <input type="hidden" value="${order.id}" name="order_id"/>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : historyOrder
     Created on : Mar 5, 2024, 9:27:23 AM
-    Author     : Le Tan Kim
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -58,13 +58,13 @@
                                                 <td class="price">
                                                     <span class="badge badge-info">
                                                         <c:if test="${order.payment == 0}">
-                                                            Thanh toan VNPAY
+                                                            Payment via VNPAY
                                                         </c:if>
                                                         <c:if test="${order.payment == 1}">
-                                                            Thanh toan khi nhan hang
+                                                            Payment upon receipt of goods
                                                         </c:if>
                                                         <c:if test="${order.payment == 3}">
-                                                            Đã xác nhận thanh toán
+                                                            Payment confirmed
                                                         </c:if>
                                                     </span>
                                                 </td>

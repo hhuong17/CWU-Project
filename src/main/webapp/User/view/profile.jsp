@@ -1,7 +1,7 @@
 <%-- 
     Document   : profile
     Created on : Mar 5, 2024, 12:51:47 AM
-    Author     : Le Tan Kim
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -52,8 +52,8 @@
                             <div class="form-group">
                                 <label>Gender</label>
                                 <select class="form-control" name="gender">
-                                    <option value="1" ${userProfile.gender==1 ? "selected" : ""}>Nam</option>
-                                    <option value="0" ${userProfile.gender==0 ? "selected" : ""}>Nữ</option>
+                                    <option value="1" ${userProfile.gender==1 ? "selected" : ""}>Male</option>
+                                    <option value="0" ${userProfile.gender==0 ? "selected" : ""}>Female</option>
                                 </select>
                             </div>
                             <div class="form-group" style="margin-top: 5px">

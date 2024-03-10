@@ -1,7 +1,7 @@
 <%-- 
     Document   : orderFail
     Created on : Mar 4, 2024, 11:51:39 PM
-    Author     : Le Tan Kim
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : detailProduct
     Created on : Mar 4, 2024, 10:04:18 AM
-    Author     : Le Tan Kim
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -144,9 +144,9 @@
             <div class="container">
                 <div class="row justify-content-center mb-3 pb-3">
                     <div class="col-md-12 heading-section text-center ftco-animate">
-                        <span class="subheading">Products</span>
-                        <h2 class="mb-4">Related Products</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                        <span class="subheading">Quality defines our brand</span>
+                        <h2 class="mb-4">Our Ingredients</h2>
+                        <p>Embark on a journey to culinary excellence! Explore our diverse collection of ingredients,<br>where quality meets delicious flavors, and your culinary creations come to life.</p>
                     </div>
                 </div>   		
             </div>

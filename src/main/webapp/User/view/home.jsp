@@ -1,7 +1,7 @@
 <%-- 
     Document   : home
     Created on : Mar 4, 2024, 12:52:47 AM
-    Author     : Le Tan Kim
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -23,8 +23,8 @@
                     <div class="container">
                         <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
                             <div class="col-md-12 ftco-animate text-center">
-                                <h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1>
-                                <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
+                                <h1 class="mb-2">We serve Fresh &amp; clean ingredients</h1>
+                                <h2 class="subheading mb-4">We deliver nutritious &amp; healthy ingredients</h2>
                                 <p><a href="#" class="btn btn-primary">View Details</a></p>
                             </div>
                         </div>
@@ -37,8 +37,8 @@
                         <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
                             <div class="col-sm-12 ftco-animate text-center">
-                                <h1 class="mb-2">100% Fresh &amp; Organic Foods</h1>
-                                <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
+                                <h1 class="mb-2">100% Hygiene &amp; Food Safety</h1>
+                                <h2 class="subheading mb-4">We deliver nutritious &amp; healthy ingredients</h2>
                                 <p><a href="#" class="btn btn-primary">View Details</a></p>
                             </div>
 
@@ -52,8 +52,8 @@
                 <div class="row justify-content-center mb-3 pb-3">
                     <div class="col-md-12 heading-section text-center ftco-animate">
                         <span class="subheading">Featured Products</span>
-                        <h2 class="mb-4">Our Products</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                        <h2 class="mb-4">Our Ingredients</h2>
+                        <p>Embark on a journey to culinary excellence! Explore our diverse collection of ingredients,<br>where quality meets delicious flavors, and your culinary creations come to life.</p>
                     </div>
                 </div>   		
             </div>
@@ -107,7 +107,7 @@
                     <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
                         <span class="subheading">Best Price For You</span>
                         <h2 class="mb-4">Deal of the day</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                        <p>Today's program: Limited stock! Get [product] at a discounted price today!</p>
                         <h3><a href="#">Spinach</a></h3>
                         <span class="price">$10 <a href="#">now $5 only</a></span>
                         <div id="timer" class="d-flex mt-5">
@@ -127,7 +127,7 @@
                     <div class="col-md-7 heading-section ftco-animate text-center">
                         <span class="subheading">Testimony</span>
                         <h2 class="mb-4">Our satisfied customer says</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+                        <p>With quality ingredients from CWU, creating delicious and unique dishes is no longer a challenge. Thank you for bringing creativity and quality to my family's meals!</p>
                     </div>
                 </div>
                 <div class="row ftco-animate">
@@ -141,9 +141,9 @@
                                         </span>
                                     </div>
                                     <div class="text text-center">
-                                        <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p class="name">Garreth Smith</p>
-                                        <span class="position">Marketing Manager</span>
+                                        <p class="mb-5 pl-4 line">Explore a diverse array of premium ingredients that spark your culinary imagination, resulting in delectable dishes with each creation.</p>
+                                        <p class="name">Quality Ingredients, Creative Dishes</p>
+                                        <span class="position">Naturally derived ingredients </span>
                                     </div>
                                 </div>
                             </div>
@@ -155,9 +155,9 @@
                                         </span>
                                     </div>
                                     <div class="text text-center">
-                                        <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p class="name">Garreth Smith</p>
-                                        <span class="position">Interface Designer</span>
+                                        <p class="mb-5 pl-4 line">We meticulously source and curate premium ingredients, enabling you to craft culinary masterpieces that impress every palate.</p>
+                                        <p class="name">Crafting Culinary Excellence</p>
+                                        <span class="position">High-quality ingredients</span>
                                     </div>
                                 </div>
                             </div>
@@ -169,9 +169,9 @@
                                         </span>
                                     </div>
                                     <div class="text text-center">
-                                        <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p class="name">Garreth Smith</p>
-                                        <span class="position">UI Designer</span>
+                                        <p class="mb-5 pl-4 line">Elevate your cooking to new heights with our carefully selected range of superior ingredients, guaranteeing a delightful culinary journey with every dish.</p>
+                                        <p class="name">Elevating Your Cooking Experience</p>
+                                        <span class="position">Fresh ingredients</span>
                                     </div>
                                 </div>
                             </div>
@@ -183,9 +183,9 @@
                                         </span>
                                     </div>
                                     <div class="text text-center">
-                                        <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p class="name">Garreth Smith</p>
-                                        <span class="position">Web Developer</span>
+                                        <p class="mb-5 pl-4 line">Explore our innovative range of ingredients and unleash your imagination to create inspired culinary creations that leave a lasting impression.</p>
+                                        <p class="name">Innovative Ingredients, Inspired Creations</p>
+                                        <span class="position">Flavorful ingredients</span>
                                     </div>
                                 </div>
                             </div>
@@ -197,9 +197,9 @@
                                         </span>
                                     </div>
                                     <div class="text text-center">
-                                        <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p class="name">Garreth Smith</p>
-                                        <span class="position">System Analyst</span>
+                                        <p class="mb-5 pl-4 line">Let our high-quality ingredients be your canvas as you unleash your inner chef, experimenting with flavors and techniques to create unforgettable meals.</p>
+                                        <p class="name">Unleash Your Inner Chef</p>
+                                        <span class="position">Chef-selected ingredients</span>
                                     </div>
                                 </div>
                             </div>

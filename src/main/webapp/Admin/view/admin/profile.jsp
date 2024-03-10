@@ -21,7 +21,7 @@
                         <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Chinh sua thong tin admin</h4>
+                                    <h4 class="card-title">Edit profile Admin</h4>
                                     <form class="forms-sample" action="/CWU/admin/profile"  method="post" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label>Username</label>

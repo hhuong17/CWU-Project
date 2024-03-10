@@ -21,31 +21,31 @@
                         <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Thêm mới bài viết</h4>
+                                    <h4 class="card-title">Add New Posts</h4>
                                     <form class="forms-sample" action="/CWU/admin/blog"  method="post" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label>Tên bài viết</label>
-                                            <input id="title" type="text" class="form-control" placeholder="Tên bài viết" name="title">
+                                            <label>Title</label>
+                                            <input id="title" type="text" class="form-control" placeholder="Title" name="title">
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label>Hình ảnh</label>
+                                            <label> Image</label>
                                             <input id="image" type="file" class="form-control" name="image">
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label>Mô tả</label>
+                                            <label>Description</label>
                                             <textarea id="description" class="form-control" name="description"></textarea>
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleSelectGender">Trạng thái</label>
+                                            <label for="exampleSelectGender">Status</label>
                                             <select class="form-control" id="exampleSelectGender" name="status">
-                                                <option value="1">Bình thường</option>
-                                                <option value="0">Ẩn</option>
+                                                <option value="1">Normal</option>
+                                                <option value="0">Hidden</option>
                                             </select>
                                         </div>
-                                        <button id="add-new" type="submit" class="btn btn-primary mr-2" name="add-new">Thêm mới</button>
+                                        <button id="add-new" type="submit" class="btn btn-primary mr-2" name="add-new">Add New</button>
                                     </form>
                                 </div>
                             </div>

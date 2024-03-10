@@ -21,25 +21,25 @@
                         <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Update bài viết</h4>
+                                    <h4 class="card-title">Update Posts</h4>
                                     <form class="forms-sample" action="/CWU/admin/blog"  method="post" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label>Tên bài viết</label>
+                                            <label>Title</label>
                                             <input id="title" type="text" class="form-control" name="title" readonly value="${blog.title}">
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label>Hình ảnh</label><br>
+                                            <label>Image</label><br>
                                             <img src="${blog.image}" alt="Image" style="width: 200px"/>
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label>Mô tả</label>
+                                            <label>Description</label>
                                             <textarea id="description" class="form-control" name="description" readonly>${blog.description}</textarea>
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleSelectGender">Trạng thái</label>
+                                            <label for="exampleSelectGender">Status</label>
                                             <input value="${blog.status == 1 ? "Active" : "Hidden"}" class="form-control" readonly/>
                                         </div>
                                         <a href="/CWU/admin/blog" id="add-new" class="btn btn-primary mr-2" name="update-blog">Back to list</a>

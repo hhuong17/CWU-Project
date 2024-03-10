@@ -21,31 +21,31 @@
                         <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Update bài viết</h4>
+                                    <h4 class="card-title">Update Posts</h4>
                                     <form class="forms-sample" action="/CWU/admin/blog"  method="post" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label>Tên bài viết</label>
+                                            <label>Title</label>
                                             <input type="hidden" name="id" value="${blog.id}"/>
-                                            <input id="title" type="text" class="form-control" placeholder="Tên bài viết" name="title" value="${blog.title}">
+                                            <input id="title" type="text" class="form-control" placeholder="Title" name="title" value="${blog.title}">
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label>Hình ảnh</label><br>
+                                            <label>Image</label><br>
                                             <input id="image" type="file" class="form-control" name="image" >
                                             <input name="oldImage" type="hidden" value="${blog.image}" />
                                             <img src="${blog.image}" alt="Image" style="width: 200px"/>
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label>Mô tả</label>
+                                            <label>Description</label>
                                             <textarea id="description" class="form-control" name="description">${blog.description}</textarea>
                                             <span class = 'message_error'></span>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleSelectGender">Trạng thái</label>
+                                            <label for="exampleSelectGender">Status</label>
                                             <select class="form-control" id="exampleSelectGender" name="status">
-                                                <option value="1" ${blog.status == 1 ? "selected" : ""}>Bình thường</option>
-                                                <option value="0" ${blog.status == 0 ? "selected" : ""}>Ẩn</option>
+                                                <option value="1" ${blog.status == 1 ? "selected" : ""}>Normal</option>
+                                                <option value="0" ${blog.status == 0 ? "selected" : ""}>Hidden</option>
                                             </select>
                                         </div>
                                         <button id="add-new" type="submit" class="btn btn-primary mr-2" name="update-blog">Update</button>

@@ -63,9 +63,9 @@
                     let table = new DataTable('#data-table', {
                         responsive: true,
                         pageLength: 25,
-                        language: {
-                            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json',
-                        },
+//                        language: {
+//                            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json',
+//                        },
                     });
                 </script>
             </div>

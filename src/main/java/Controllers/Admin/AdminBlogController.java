@@ -69,7 +69,7 @@ public class AdminBlogController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Authen auth = new Authen();
-        if (auth.isLogigCandidate(request) != null) {
+        if (auth.isLogigAdmin(request) != null) {
             String path = request.getRequestURI();
             NumberCustom  number = new NumberCustom();
             BlogDao blogDao = new BlogDao();

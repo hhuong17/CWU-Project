@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author Group 2
  */
 public class DBConnection {
- private static final String urlConnect = "jdbc:sqlserver://LAPTOP-S5NBMJR3\\SQLEXPRESS:1433;databaseName=CWUproject;user=sa;password=sa;encrypt=true;trustServerCertificate=true;";
+ private static final String urlConnect = "jdbc:sqlserver://LAPTOP-5O12M7IG:1433;databaseName=CWUfinal;user=sa;password=sa;encrypt=true;trustServerCertificate=true;";
     public static Connection connect() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

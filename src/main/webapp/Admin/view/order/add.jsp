@@ -22,10 +22,10 @@
                             <div class="col-12 grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Thêm mới san pham</h4>
+                                        <h4 class="card-title">Add New Products</h4>
                                         <form class="forms-sample" action="/CWU/admin/product"  method="post" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <label for="exampleSelectGender">Danh muc</label>
+                                                <label for="exampleSelectGender">Category</label>
                                                 <select class="form-control" id="exampleSelectGender" name="category">
                                                     <c:forEach items="${categories}" var="cat">
                                                          <option value="${cat.id}">${cat.name}</option>
@@ -33,18 +33,18 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Tieu de</label>
-                                                <input id="category" type="text" class="form-control" placeholder="Tieu de" name="title">
+                                                <label>Title</label>
+                                                <input id="category" type="text" class="form-control" placeholder="Title" name="title">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label>Gia</label>
-                                                <input id="category" type="text" class="form-control" placeholder=Gia" name="price">
+                                                <label>Price</label>
+                                                <input id="category" type="text" class="form-control" placeholder=Price" name="price">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label>Gia sale</label>
-                                                <input id="category" type="text" class="form-control" placeholder="Gia sale" name="priceSale">
+                                                <label>Price Sale</label>
+                                                <input id="category" type="text" class="form-control" placeholder="Price Sale" name="priceSale">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
@@ -53,23 +53,23 @@
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label>Mo ta</label>
+                                                <label>Description</label>
                                                 <input id="category" type="text" class="form-control" placeholder="Mo ta" name="desc">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label>Hinh anh</label>
-                                                <input id="category" type="file" class="form-control" placeholder="Hinh anh" name="image">
+                                                <label>Image</label>
+                                                <input id="category" type="file" class="form-control" placeholder="Image" name="image">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleSelectGender">Trạng thái</label>
+                                                <label for="exampleSelectGender">Status</label>
                                                 <select class="form-control" id="exampleSelectGender" name="status">
-                                                    <option value="1">Bình thường</option>
-                                                    <option value="0">Ẩn</option>
+                                                    <option value="1">Normal</option>
+                                                    <option value="0">Hidden</option>
                                                 </select>
                                             </div>
-                                            <button id="add-new" type="submit" class="btn btn-primary mr-2" name="add-new">Thêm mới</button>
+                                            <button id="add-new" type="submit" class="btn btn-primary mr-2" name="add-new">Add New</button>
                                         </form>
                                     </div>
                                 </div>

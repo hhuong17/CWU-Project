@@ -21,23 +21,23 @@
                             <div class="col-12 grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Sửa danh mục</h4>
+                                        <h4 class="card-title">Update Category</h4>
                                         <form class="forms-sample" action="/CWU/admin/category/" method="post">
                                             <input type="hidden" name="id" value="${category.id}"> <!-- Hoặc sử dụng PATCH nếu prefer -->
                                             <div class="form-group">
-                                                <label>Tên danh mục</label>
-                                                <input id="category" type="text" class="form-control" placeholder="Tên danh mục" name="name" value="${category.name}">
+                                                <label>Name of Category</label>
+                                                <input id="category" type="text" class="form-control" placeholder="Name of Category" name="name" value="${category.name}">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleSelectGender">Trạng thái</label>
+                                                <label for="exampleSelectGender">Status</label>
                                                 <select class="form-control" id="exampleSelectGender" name="status">
-                                                    <option value="1" ${category.status == 1 ? "selected" : ""}>Bình thường</option>
-                                                    <option value="0" ${category.status == 0 ? "selected" : ""}>Ẩn</option>
+                                                    <option value="1" ${category.status == 1 ? "selected" : ""}>Normal </option>
+                                                    <option value="0" ${category.status == 0 ? "selected" : ""}>Hidden</option>
                                                 </select>
                                             </div>
-                                            <button type="submit" class="btn btn-primary mr-2" name="edit-category">Lưu chỉnh sửa</button>
-                                            <a href="/CWU/admin/category" class="btn btn-light">Quay lại</a>
+                                            <button type="submit" class="btn btn-primary mr-2" name="edit-category">Save</button>
+                                            <a href="/CWU/admin/category" class="btn btn-light">Back</a>
                                         </form>
                                     </div>
                                 </div>

@@ -33,9 +33,9 @@
                                         <thead>
                                             <tr>
                                                 <th> # </th>
-                                                <th> Danh muc </th>
-                                                <th> Trang thai </th>
-                                                <th> Xử lí </th>
+                                                <th> Category </th>
+                                                <th> Status </th>
+                                                <th> Progress </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -45,8 +45,8 @@
                                                     <td> ${category.name} </td>
                                                     <td> ${category.status == 1 ? "Hoat dong" : "An"} </td>
                                                    <td> 
-                                                       <a href="/CWU/admin/category/edit/${category.id}" class="btn btn-success">Chinh sua</a>
-                                                       <a href="/CWU/admin/category/delete/${category.id}" class="btn btn-danger" onclick=" return confirm('Are your sure to delete this?')">Xoa</a>
+                                                       <a href="/CWU/admin/category/edit/${category.id}" class="btn btn-success">Edit</a>
+                                                       <a href="/CWU/admin/category/delete/${category.id}" class="btn btn-danger" onclick=" return confirm('Are your sure to delete this?')">Delete</a>
                                                    </td>
                                                 </tr>
                                             </c:forEach>
@@ -63,9 +63,7 @@
                     let table = new DataTable('#data-table', {
                         responsive: true,
                         pageLength: 25,
-                        language: {
-                            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json',
-                        },
+
                     });
                 </script>
             </div>

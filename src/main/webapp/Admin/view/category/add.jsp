@@ -21,21 +21,21 @@
                             <div class="col-12 grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Thêm mới ngành nghề</h4>
+                                        <h4 class="card-title">Add New Category</h4>
                                         <form class="forms-sample" action="/CWU/admin/category"  method="post">
                                             <div class="form-group">
-                                                <label>Tên ngành nghề</label>
-                                                <input id="category" type="text" class="form-control" placeholder="Tên danh muc" name="name">
+                                                <label>Name of Category</label>
+                                                <input id="category" type="text" class="form-control" placeholder="Name of Category" name="name">
                                                 <span class = 'message_error'></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleSelectGender">Trạng thái</label>
+                                                <label for="exampleSelectGender">Status</label>
                                                 <select class="form-control" id="exampleSelectGender" name="status">
-                                                    <option value="1">Bình thường</option>
-                                                    <option value="0">Ẩn</option>
+                                                    <option value="1">Normal</option>
+                                                    <option value="0">Hidden</option>
                                                 </select>
                                             </div>
-                                            <button id="add-new" type="submit" class="btn btn-primary mr-2" name="add-new">Thêm mới</button>
+                                            <button id="add-new" type="submit" class="btn btn-primary mr-2" name="add-new">Add New</button>
                                         </form>
                                     </div>
                                 </div>

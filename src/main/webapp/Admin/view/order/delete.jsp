@@ -21,10 +21,10 @@
                             <div class="col-12 grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Xóa category</h4>
+                                        <h4 class="card-title">Delete category</h4>
                                         <form class="forms-sample" action="/CWU/admin/delete-category" method="post">
                                             <div class="form-group">
-                                                <label for="categoryId">Chọn ngành nghề cần xóa</label>
+                                                <label for="categoryId">Select the category to delete</label>
                                                 <select class="form-control" id="categoryId" name="categoryId">
                                                     <!-- Lặp qua danh sách các category để hiển thị -->
                                                     <%
@@ -37,8 +37,8 @@
                                                     <% } %>
                                                 </select>
                                             </div>
-                                            <button id="delete-category" type="submit" class="btn btn-danger mr-2" name="delete-category">Xóa</button>
-                                            <button class="btn btn-light" type="reset">Hủy bỏ</button>
+                                            <button id="delete-category" type="submit" class="btn btn-danger mr-2" name="delete-category">Delete</button>
+                                            <button class="btn btn-light" type="reset">Cancel</button>
                                         </form>
                                     </div>
                                 </div>

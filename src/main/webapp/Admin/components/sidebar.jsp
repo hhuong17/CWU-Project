@@ -3,7 +3,7 @@
     Created on : Feb 27, 2024, 10:59:33 PM
     Author     : LENOVO
 --%>
-
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">

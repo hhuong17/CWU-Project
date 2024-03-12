@@ -1,7 +1,7 @@
 <%-- 
     Document   : detailOrderHistory
     Created on : Mar 5, 2024, 10:57:39 AM
-    Author     : Le Tan Kim
+    Author     : Group 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

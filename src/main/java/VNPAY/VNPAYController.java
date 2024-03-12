@@ -22,7 +22,7 @@ import java.util.TimeZone;
 
 /**
  *
- * @author Uyen
+ * @author Group 2
  */
 public class VNPAYController extends HttpServlet {
    

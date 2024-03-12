@@ -25,7 +25,7 @@ import java.util.List;
 
 /**
  *
- * @author Le Tan Kim
+ * @author Group 2
  */
 public class OrderStatusController extends HttpServlet {
 

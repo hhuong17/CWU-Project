@@ -1,10 +1,6 @@
 
 package VNPAY;
 
-/**
- *
- * @author Uyen
- */
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -22,7 +18,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 /**
  *
- * @author CTT VNPAY
+ * @author Group 2
  */
 public class Config {
 

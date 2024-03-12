@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Le Tan Kim
+ * @author group 2
  */
 public class UserLoginController extends HttpServlet {
 

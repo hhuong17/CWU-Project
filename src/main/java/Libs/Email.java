@@ -22,9 +22,9 @@ import java.util.Properties;
 
 public class Email {
 
-    static final String username = "WEBSITE TÌM KIẾM VIỆC LÀM - 3Do";
-    static final String from = "an0932003860@gmail.com";
-    static final String password = "jhddgheiqkretsni";
+    static final String username = "COOK WITH ME";
+    static final String from = "nam0907563558@gmail.com";
+    static final String password = "tsmafsjkaeyykgnn";
 
     public boolean sendEmail(String to, String title, String content, String reply) {
         // Properties : khai báo các thuộc tính

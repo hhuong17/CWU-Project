@@ -58,6 +58,32 @@ public class OrderDao {
         return orders;
     }
     
+    public List<Order> getAllByStatus(int status) {
+        String sql = "SELECT * FROM [order] where status=? order by id desc";
+        List<Order> orders = new ArrayList<>();
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, status);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String fullname = rs.getString("fullname");
+                String address = rs.getString("address");
+                String phone = rs.getString("phone");
+                Timestamp orderDate = rs.getTimestamp("order_date");
+                double total = rs.getDouble("total");
+                int payment = rs.getInt("payment");
+                String note = rs.getString("note");
+                int user_id = rs.getInt("user_id");
+                Order order = new Order(id, fullname, address, phone, orderDate, total, payment, status, note,user_id);
+                orders.add(order);
+            }
+        } catch (Exception e) {
+            System.out.println("Get all orders: " + e);
+        }
+        return orders;
+    }
+    
     public List<Order> getAllOrderByUser(int userId) {
         String sql = "SELECT * FROM [order] where user_id=? order by id desc";
         List<Order> orders = new ArrayList<>();
@@ -165,7 +191,7 @@ public class OrderDao {
     }
 
     public int updateStatus(int id, int status) {
-        String sql = "Update [Order] set status = ? where id=?";
+        String sql = "Update [Order] set status = ?, payment=3 where id=?";
         int result = 0;
         try {
             PreparedStatement st = conn.prepareStatement(sql);

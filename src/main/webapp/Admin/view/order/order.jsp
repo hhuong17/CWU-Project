@@ -24,6 +24,21 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">All orders</h4>
+                                    <form act="/CWU/admin/order" method="post">
+                                        <div>
+                                            <select name="status" class="form-control">
+                                                <option value="1" ${status == 1 ? "selected" : ""}>Ðã xác nhan</option>
+                                                <option value="2" ${status == 2 ? "selected" : ""}>Da Huy</option>
+                                                <option value="3" ${status == 3 ? "selected" : ""}>Da giao cho van chuyen</option>
+                                                <option value="4" ${status == 4 ? "selected" : ""}>Dang van chuyen</option>
+                                                <option value="5" ${status == 5 ? "selected" : ""}>Da nhan hang va than toan</option>
+                                                <option value="0" ${status == 0 ? "selected" : ""}>Don hang moi</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <button name="filter" class="btn btn-info">Filter</button>
+                                        </div>
+                                    </form>
                                     <h6 style="color: red;">
                                         <c:if test="${param.status != null}">
                                             ${param.status != null  && param.status == 0 ? param.message : "Action successfully"}
@@ -37,7 +52,7 @@
                                                 <th> Address </th>
                                                 <th> Phone </th>
                                                 <th> Order date </th>
-                                                <th> Payment </th>
+                                                <!--<th> Payment </th>-->
                                                 <th> Status </th>
                                                 <th> Action </th>
                                             </tr>
@@ -50,7 +65,7 @@
                                                     <td> ${order.address} </td>
                                                     <td> ${order.phone} </td>
                                                     <td> ${order.orderDate} </td>
-                                                    <td> <span class="badge badge-danger">${convertStatus.convertStatusPayment(order.payment)}</span> </td>
+                                                    <!--<td> <span class="badge badge-danger">${convertStatus.convertStatusPayment(order.payment)}</span> </td>-->
                                                     <td> 
                                                         <span class="${convertStatus.convertStatusTag(order.status)}">${convertStatus.convertStatus(order.status)}</span>
                                                     </td>

@@ -38,12 +38,12 @@
                 <span class="menu-title">Order Management</span>
             </a>
         </li>
-        <li class="nav-item">
+<!--        <li class="nav-item">
             <a class="nav-link" href="/CWU/admin/order/confirm">
                 <span class="icon-bg"><i class="mdi mdi-format-list-bulleted menu-icon"></i></span>
                 <span class="menu-title">Confirm Payment</span>
             </a>
-        </li>
+        </li>-->
         <li class="nav-item">
             <a class="nav-link"  href="/CWU/admin/user" >
                 <span class="icon-bg"><i class="mdi mdi-lock menu-icon"></i></span>

@@ -88,11 +88,11 @@ public class AdminOrderController extends HttpServlet {
                 request.setAttribute("order", order);
                 request.setAttribute("orderDetails", orderDetail);
                 request.getRequestDispatcher("/Admin/view/order/update.jsp").forward(request, response);
-            } else if(path.endsWith("/CWU/admin/order/confirm")) {
+            } else if (path.endsWith("/CWU/admin/order/confirm")) {
                 List<Order> orders = orderDao.getAllByPayment(5);
                 request.setAttribute("orders", orders);
                 request.getRequestDispatcher("/Admin/view/order/confirm.jsp").forward(request, response);
-            } else if(path.startsWith("/CWU/admin/order/confim")) {
+            } else if (path.startsWith("/CWU/admin/order/confim")) {
                 String paths[] = path.split("/");
                 int id = number.getInt(paths[paths.length - 1]);
                 Order order = orderDao.getById(id);
@@ -122,18 +122,25 @@ public class AdminOrderController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         NumberCustom number = new NumberCustom();
-        if(request.getParameter("update-order") != null) {
+        if (request.getParameter("update-order") != null) {
             int id = number.getInt(request.getParameter("id"));
             int status = number.getInt(request.getParameter("status"));
             OrderDao orderDao = new OrderDao();
             int result = orderDao.updateStatus(id, status);
-            response.sendRedirect("/CWU/admin/order/confirm?status=" + result);
-        } else if(request.getParameter("update-order-payment") != null) {
+            response.sendRedirect("/CWU/admin/order?status=" + result);
+        } else if (request.getParameter("update-order-payment") != null) {
             int id = number.getInt(request.getParameter("id"));
             int payment = number.getInt(request.getParameter("payment"));
             OrderDao orderDao = new OrderDao();
             int result = orderDao.updateConfirm(id, payment);
             response.sendRedirect("/CWU/admin/order/confirm?status=" + result);
+        } else if (request.getParameter("filter") != null) {
+            int status = number.getInt(request.getParameter("status"));
+            OrderDao orderDao = new OrderDao();
+            List<Order> orders = orderDao.getAllByStatus(status);
+            request.setAttribute("orders", orders);
+            request.setAttribute("status", status);
+            request.getRequestDispatcher("/Admin/view/order/order.jsp").forward(request, response);
         }
     }
 

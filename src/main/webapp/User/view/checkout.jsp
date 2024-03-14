@@ -11,6 +11,7 @@
 <html lang="en">
     <head>
         <title>Check out</title>
+        <<link rel="stylesheet" href="./assets/css/form.css"/>
         <%@include file="../components/baseHead.jsp" %>
     </head>
     <body class="goto-here">
@@ -37,7 +38,8 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="firstname">Fullname</label>
-                                        <input name="fullname" type="text" class="form-control" placeholder="Fullname">
+                                        <input name="fullname" id="fullname" type="text" class="form-control" placeholder="Fullname" required>
+                                        <span class="message_error"></span>
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
@@ -45,13 +47,15 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="streetaddress">Address</label>
-                                        <input name="address" type="text" class="form-control" placeholder="Address">
+                                        <input name="address" type="text" id="address" class="form-control" placeholder="Address" required>
+                                        <span class="message_error"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="streetaddress">Phone</label>
-                                        <input name="phone" type="text" class="form-control" placeholder="Phone number">
+                                        <input name="phone" type="text" id="phone" class="form-control" placeholder="Phone number" required>
+                                        <span class="message_error"></span>
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
@@ -72,7 +76,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <p><button type="submit" name="btn-checkout" class="btn btn-primary py-3 px-4">Check out</button></p>
+                                        <p><button id="btn-order" type="submit" name="btn-checkout" class="btn btn-primary py-3 px-4">Check out</button></p>
                                     </div>
                                 </div>
                             </div>
@@ -151,8 +155,23 @@
                         $('#quantity').val(quantity - 1);
                     }
                 });
-
             });
         </script>
+        <script src="./assets/js/check.js"></script>
+        <script>
+                                        let fullname = document.querySelector('#fullname'),
+                                                phone = document.querySelector('#phone'),
+                                                address = document.querySelector('#address'),
+                                                btnSubmit = document.querySelector('#btn-order');
+                                        const messageEmpty = "Hãy nhập thông tin cho trường này",
+ 
+                                                messagePhone = "Hãy nhập đúng định dạng số điện thoại";
+                                        const inputsToValidateCheckInfo = [
+                                            {element: address, message: messageEmpty, regex: /^.{1,}$/, type: "text", isEmpty: false},
+                                            {element: phone, message: messagePhone, regex: /(84|0[3|5|7|8|9])+([0-9]{8})\b/g, type: "text", isEmpty: false},
+                                            {element: fullname, message: messageEmpty, regex: /^.{1,}$/, type: "text", isEmpty: false},
+                                        ];
+                                        validation(inputsToValidateCheckInfo, btnSubmit);
+    </script>
     </body>
 </html>

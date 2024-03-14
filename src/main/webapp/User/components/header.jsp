@@ -69,6 +69,11 @@
                             Login
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="/CWU/register" class="nav-link">
+                            Register
+                        </a>
+                    </li>
                 </c:if>
                 <li class="nav-item cta cta-colored"><a href="/CWU/cart" class="nav-link">
                         <span class="icon-shopping_cart"></span>[${getCategoryLib.getNumberOfCart(sessionScope.idUser == null ? 0 : sessionScope.idUser)}]</a>

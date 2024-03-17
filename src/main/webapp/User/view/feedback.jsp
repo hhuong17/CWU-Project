@@ -30,7 +30,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Content</label>
-                                <input name="content" type="text" class="form-control" placeholder="Content">
+                                <input required name="content" type="text" class="form-control" placeholder="Content">
                             </div>
                             <div class="form-group">
                                 <label>Image</label>

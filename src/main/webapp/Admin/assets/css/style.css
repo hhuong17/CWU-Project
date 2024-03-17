@@ -13485,6 +13485,7 @@ dl {
 
 /* Sidebar */
 .sidebar {
+    margin-top: 64px;
   min-height: calc(100vh - 64px);
   background: #181824;
   font-family: "nunito-medium", sans-serif;

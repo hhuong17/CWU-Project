@@ -4,11 +4,11 @@
     Author     : LENOVO
 --%>
 <style>
-   
-        .navbar .navbar-brand-wrapper .navbar-brand img {
-            height: 80px !important;
-        }
-    
+
+    .navbar .navbar-brand-wrapper .navbar-brand img {
+        height: 80px !important;
+    }
+
 </style>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:useBean id="getAdmin" scope="page" class="Libs.AdminGetLib"/>
@@ -26,10 +26,10 @@
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
         </button>
-        
+
         <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item nav-profile dropdown">
-                <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+            <li class="nav-item nav-profile dropdown" onclick="toggleMenu()">
+                <a class="nav-link dropdown-toggle" id="profileDropdown">
                     <c:set value="${getAdmin.getAdmin(sessionScope.idAdmin)}" var="adminLogin" />
                     <div class="nav-profile-img">
                         <img src="${adminLogin != null && adminLogin.avatar !=  null  ? adminLogin.avatar : "./uploads/avatar/default.jpg"}" alt="image">
@@ -67,3 +67,13 @@
         </button>
     </div>
 </nav>
+<script>
+    let btnShow = document.querySelector(".nav-item.nav-profile.dropdown");
+    let menuShow = document.querySelector(".dropdown-menu.navbar-dropdown.dropdown-menu-right");
+    const toggleMenu = () => {
+        btnShow.classList.toggle("show");
+        menuShow.classList.toggle("show");
+
+    }
+
+</script>

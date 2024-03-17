@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register form</title>
+        <link rel="stylesheet" href="./assets/css/form.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <style>
             .gradient-custom {
@@ -37,28 +38,33 @@
                                     <br>
                                     <h2 style="color: red;">${param.message}</h2>
                                     <form action="/CWU/register" method="post">
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeEmailX" name="fullname" placeholder="Fullname" class="form-control form-control-lg" />
+                                        <div class="form-outline form-white mb-4 form-group">
+                                            <input type="text" id="typeFullname" name="fullname" placeholder="Fullname" class="form-control form-control-lg" />
                                             <label class="form-label" for="typeEmailX"></label>
+                                            <span class="message_error"></span>
                                         </div>
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeEmailX" name="phone" placeholder="Phone" class="form-control form-control-lg" />
+                                        <div class="form-outline form-white mb-4 form-group">
+                                            <input type="text" id="typePhone" name="phone" placeholder="Phone" class="form-control form-control-lg" />
                                             <label class="form-label" for="typeEmailX"></label>
+                                            <span class="message_error"></span>
                                         </div>
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typePasswordX" name="address" placeholder="Address" class="form-control form-control-lg" />
+                                        <div class="form-outline form-white mb-4 form-group">
+                                            <input type="text" id="typeAddress" name="address" placeholder="Address" class="form-control form-control-lg" />
                                             <label class="form-label" for="typePasswordX"></label>
+                                            <span class="message_error"></span>
                                         </div>
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeEmailX" name="email" placeholder="Email" class="form-control form-control-lg" />
+                                        <div class="form-outline form-white mb-4 form-group">
+                                            <input type="text" id="typeEmail" name="email" placeholder="Email" class="form-control form-control-lg" />
                                             <label class="form-label" for="typeEmailX"></label>
+                                            <span class="message_error"></span>
                                         </div>
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="password" id="typePasswordX" name="password" placeholder="Pasword" class="form-control form-control-lg" />
+                                        <div class="form-outline form-white mb-4 form-group">
+                                            <input type="password" id="typePassword" name="password" placeholder="Pasword" class="form-control form-control-lg" />
                                             <label class="form-label" for="typePasswordX"></label>
+                                            <span class="message_error"></span>
                                         </div>
                                         <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="/CWU/login">Login</a></p>
-                                        <button class="btn btn-outline-light btn-lg px-5" type="submit" name="btn-signup">Sign up</button>
+                                        <button class="btn btn-outline-light btn-lg px-5" type="submit" id="btn-res" name="btn-signup">Sign up</button>
                                     </form>
                                     <div class="d-flex justify-content-center text-center mt-4 pt-1">
                                         <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
@@ -76,6 +82,25 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+        <script src="./assets/js/check.js"></script>
+        <script>
+                                        let fullname = document.querySelector('#typeFullname'),
+                                                phone = document.querySelector('#typePhone'),
+                                                email = document.querySelector('#typeEmail'),
+                                                password = document.querySelector('#typePassword'),
+                                                address = document.querySelector('#typeAddress'),
+                                                btnSubmit = document.querySelector('#btn-res');
+                                        const messageEmpty = "Hãy nhập thông tin cho trường này",
+ 
+                                                messagePhone = "Hãy nhập đúng định dạng số điện thoại";
+                                        const inputsToValidateCheckInfo = [
+                                             {element: password, message: messageEmpty, regex: /^.{1,}$/, type: "text", isEmpty: false},
+                                              {element: email, message: messageEmpty, regex: /^.{1,}$/, type: "text", isEmpty: false},
+                                            {element: address, message: messageEmpty, regex: /^.{1,}$/, type: "text", isEmpty: false},
+                                            {element: phone, message: messagePhone, regex: /(84|0[3|5|7|8|9])+([0-9]{8})\b/g, type: "text", isEmpty: false},
+                                            {element: fullname, message: messageEmpty, regex: /^.{1,}$/, type: "text", isEmpty: false},
+                                        ];
+                                        validation(inputsToValidateCheckInfo, btnSubmit);
+    </script>
     </body>
 </html>

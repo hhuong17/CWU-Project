@@ -40,11 +40,11 @@
                                     <h2 style="color: red;">${message}</h2>
                                     <form action="/CWU/login" method="post">
                                         <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeEmailX" name="username" placeholder="Username" class="form-control form-control-lg" />
+                                            <input required type="text" id="typeEmailX" name="username" placeholder="Username" class="form-control form-control-lg" />
                                             <label class="form-label" for="typeEmailX"></label>
                                         </div>
                                         <div class="form-outline form-white mb-4">
-                                            <input type="password" id="typePasswordX" name="password" placeholder="Pasword" class="form-control form-control-lg" />
+                                            <input required type="password" id="typePasswordX" name="password" placeholder="Pasword" class="form-control form-control-lg" />
                                             <label class="form-label" for="typePasswordX"></label>
                                         </div>
                                         <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="/CWU/forget-password">Forgot password?</a></p>

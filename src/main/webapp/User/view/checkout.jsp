@@ -11,7 +11,7 @@
 <html lang="en">
     <head>
         <title>Check out</title>
-        <<link rel="stylesheet" href="./assets/css/form.css"/>
+        <link rel="stylesheet" href="./assets/css/form.css"/>
         <%@include file="../components/baseHead.jsp" %>
     </head>
     <body class="goto-here">

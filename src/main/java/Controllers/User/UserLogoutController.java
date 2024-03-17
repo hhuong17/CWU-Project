@@ -57,7 +57,7 @@ public class UserLogoutController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         Authen auth = new Authen();
-        if (auth.isLogigAdmin(request) != null) {
+        if (auth.isLogigCandidate(request) != null) {
             Cookie cookie = new Cookie("usernameUser", null);
             Cookie cookieID = new Cookie("idUser", null);
             cookie.setMaxAge(0);

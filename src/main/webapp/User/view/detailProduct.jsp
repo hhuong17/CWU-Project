@@ -40,11 +40,11 @@
                             <p class="text-left mr-4">
                                 <a href="#" class="mr-2">${startAverge}</a>
                                 <c:forEach begin="0" end="${startAverge - 1}">
-                                    <a><span class="ion-ios-star"></span></a>
+                                    <a><i style="color: yellow" class='bx bxs-star' ></i></a>
                                     </c:forEach>
                                     <c:if test="${(5 - (startAverge)) > 0}">
                                         <c:forEach begin="0" end="${(5 - (startAverge) - 1)}">
-                                        <a><span class="ion-ios-star-outline"></span></a>
+                                        <a><i class='bx bx-star' ></i></a>
                                         </c:forEach>
                                     </c:if>
                             </p>
@@ -61,14 +61,14 @@
                                 <div class="input-group col-md-6 d-flex mb-3">
                                     <span class="input-group-btn mr-2">
                                         <button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
-                                            <i class="ion-ios-remove"></i>
+                                            -
                                         </button>
                                     </span>
                                     <input type="hidden" name="id" value="${product.id}">
                                     <input type="text" id="quantity" name="quantity" class="form-control input-number quantity-${product.id}" value="1" min="1" max="${product.stock}">
                                     <span class="input-group-btn ml-2">
                                         <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-                                            <i class="ion-ios-add"></i>
+                                            +
                                         </button>
                                     </span>
                                 </div>
@@ -113,11 +113,12 @@
                                                 <div class="meta">
                                                     ${feed.feedbackDate}
                                                     <c:forEach begin="0" end="${feed.rate - 1}">
-                                                        <a><span style="color: yellow" class="ion-ios-star"></span></a>
+                                                        <a>
+                                                            <i style="color: yellow" class='bx bx-star' ></i></a>
                                                         </c:forEach>
                                                         <c:if test="${(5 - (feed.rate)) > 0}">
                                                             <c:forEach begin="0" end="${(5 - (feed.rate)) - 1}">
-                                                            <a><span class="ion-ios-star-outline"></span></a>
+                                                            <a><i class='bx bxs-star' ></i></a>
                                                             </c:forEach>
                                                         </c:if>
                                                 </div>
@@ -177,10 +178,10 @@
                                         <div class="bottom-area d-flex px-3">
                                             <div class="m-auto d-flex">
                                                 <a href="/CWU/product/detail/${product.id}" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                                    <span><i class="ion-ios-menu"></i></span>
+                                                    <span><i class='bx bx-spreadsheet'></i></span>
                                                 </a>
                                                 <a href="/CWU/cart/add/${product.id}" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                                    <span><i class="ion-ios-cart"></i></span>
+                                                    <span><i class='bx bx-cart'></i></span>
                                                 </a>
                                                 <!--                                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
                                                                                                     <span><i class="ion-ios-heart"></i></span>

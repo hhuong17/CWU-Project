@@ -4,6 +4,7 @@
     Author     : Group 2
 --%>
 <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="getCategoryLib" class="Libs.AdminGetLib" scope="page" />
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -13,11 +14,11 @@
             <div class="col-lg-12 d-block">
                 <div class="row d-flex">
                     <div class="col-md pr-4 d-flex topper align-items-center">
-                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><i class='bx bxs-phone' ></i></div>
                         <span class="text">+ 0987654321</span>
                     </div>
                     <div class="col-md pr-4 d-flex topper align-items-center">
-                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><i class='bx bxs-envelope' ></i></div>
                         <span class="text">cwu.store@gmail.com</span>
                     </div>
                     <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
@@ -76,7 +77,7 @@
                     </li>
                 </c:if>
                 <li class="nav-item cta cta-colored"><a href="/CWU/cart" class="nav-link">
-                        <span class="icon-shopping_cart"></span>[${getCategoryLib.getNumberOfCart(sessionScope.idUser == null ? 0 : sessionScope.idUser)}]</a>
+                        <i class='bx bx-cart'></i>[${getCategoryLib.getNumberOfCart(sessionScope.idUser == null ? 0 : sessionScope.idUser)}]</a>
                 </li>
             </ul>
         </div>
